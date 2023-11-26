@@ -7,6 +7,7 @@ import 'package:reporting_app/screens/main/main_screen.dart';
 import 'constants.dart';
 import 'controllers/MenuAppController.dart';
 
+
 void main() {
   runApp(MyApp());
 }
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Admin Panel',
+      title: 'Reporting App',
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: bgColor,
         textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)

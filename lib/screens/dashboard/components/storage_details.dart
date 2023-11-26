@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-
 import '../../../constants.dart';
 import 'chart.dart';
 import 'storage_info_card.dart';
+
+// right side pie chart
 
 class StorageDetails extends StatelessWidget {
   const StorageDetails({
