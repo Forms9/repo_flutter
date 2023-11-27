@@ -1,50 +1,62 @@
 class RecentFile {
-  final String? icon, title, date, size;
+  final String? icon, supplier_name, supplier_code, contact, address;
 
-  RecentFile({this.icon, this.title, this.date, this.size});
+  RecentFile(
+      {this.icon,
+      this.supplier_name,
+      this.supplier_code,
+      this.contact,
+      this.address});
 }
 
 List demoRecentFiles = [
   RecentFile(
     icon: "assets/icons/xd_file.svg",
-    title: "XD File",
-    date: "01-03-2021",
-    size: "3.5mb",
+    supplier_name: "XD File",
+    supplier_code: "01-03-2021",
+    contact: "3.5mb",
+    address: "hjgsdahj",
   ),
   RecentFile(
     icon: "assets/icons/Figma_file.svg",
-    title: "Figma File",
-    date: "27-02-2021",
-    size: "19.0mb",
+    supplier_name: "Figma File",
+    supplier_code: "27-02-2021",
+    contact: "19.0mb",
+    address: "hjgsdahj",
   ),
   RecentFile(
     icon: "assets/icons/doc_file.svg",
-    title: "Document",
-    date: "23-02-2021",
-    size: "32.5mb",
+    supplier_name: "Document",
+    supplier_code: "23-02-2021",
+    contact: "32.5mb",
+    address: "hjgsdahj",
   ),
   RecentFile(
     icon: "assets/icons/sound_file.svg",
-    title: "Sound File",
-    date: "21-02-2021",
-    size: "3.5mb",
+    supplier_name: "Sound File",
+    supplier_code: "21-02-2021",
+    contact: "3.5mb",
+    address: "hjgsdahj",
   ),
   RecentFile(
     icon: "assets/icons/media_file.svg",
-    title: "Media File",
-    date: "23-02-2021",
-    size: "2.5gb",
+    supplier_name: "Media File",
+    supplier_code: "23-02-2021",
+    contact: "2.5gb",
+    address: "hjgsdahj",
   ),
   RecentFile(
     icon: "assets/icons/pdf_file.svg",
-    title: "Sales PDF",
-    date: "25-02-2021",
-    size: "3.5mb",
+    supplier_name: "Sales PDF",
+    supplier_code: "25-02-2021",
+    contact: "3.5mb",
+    address: "hjgsdahj",
   ),
   RecentFile(
     icon: "assets/icons/excel_file.svg",
-    title: "Excel File",
-    date: "25-02-2021",
-    size: "34.5mb",
+    supplier_name: "Excel File",
+    supplier_code: "25-02-2021",
+    contact: "34.5mb",
+    address: "hjgsdahj",
   ),
 ];

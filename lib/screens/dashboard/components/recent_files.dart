@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -32,13 +31,16 @@ class RecentFiles extends StatelessWidget {
               // minWidth: 600,
               columns: [
                 DataColumn(
-                  label: Text("File Name"),
+                  label: Text("Supplier"),
                 ),
                 DataColumn(
-                  label: Text("Date"),
+                  label: Text("supplier_name"),
                 ),
                 DataColumn(
-                  label: Text("Size"),
+                  label: Text("Contact"),
+                ),
+                DataColumn(
+                  label: Text("Address"),
                 ),
               ],
               rows: List.generate(
@@ -60,20 +62,42 @@ DataRow recentFileDataRow(RecentFile fileInfo) {
         Row(
           children: [
             SvgPicture.asset(
-              fileInfo.icon ?? 'assets/images/logo.png', // Provide a default icon or handle accordingly
+              fileInfo.icon ?? 'assets/images/logo.png',
               height: 30,
               width: 30,
             ),
-
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-              child: Text(fileInfo.title!),
+              child: Text(
+                fileInfo.supplier_name!,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
             ),
           ],
         ),
       ),
-      DataCell(Text(fileInfo.date!)),
-      DataCell(Text(fileInfo.size!)),
+      DataCell(
+        Text(
+          fileInfo.supplier_code!,
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+      ),
+      DataCell(Text(
+        fileInfo.contact!,
+        style: TextStyle(
+          color: Colors.white,
+        ),
+      )),
+      DataCell(Text(
+        fileInfo.address!,
+        style: TextStyle(
+          color: Colors.white,
+        ),
+      )),
     ],
   );
 }

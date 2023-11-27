@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -6,7 +5,6 @@ import 'package:reporting_app/screens/main/main_screen.dart';
 
 import 'constants.dart';
 import 'controllers/MenuAppController.dart';
-
 
 void main() {
   runApp(MyApp());
@@ -30,6 +28,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(
             create: (context) => MenuAppController(),
           ),
+          // Add other providers if needed
         ],
         child: MainScreen(),
       ),

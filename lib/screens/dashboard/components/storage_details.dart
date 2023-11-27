@@ -3,12 +3,17 @@ import '../../../constants.dart';
 import 'chart.dart';
 import 'storage_info_card.dart';
 
-// right side pie chart
-
-class StorageDetails extends StatelessWidget {
+class StorageDetails extends StatefulWidget {
   const StorageDetails({
     Key? key,
   }) : super(key: key);
+
+  @override
+  _StorageDetailsState createState() => _StorageDetailsState();
+}
+
+class _StorageDetailsState extends State<StorageDetails> {
+  String selectedDuration = "Today"; // Default selected value
 
   @override
   Widget build(BuildContext context) {
@@ -21,39 +26,42 @@ class StorageDetails extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Storage Details",
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Analysis",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              DropdownButton<String>(
+                items: ["Today", "7 days", "30 days", "1 Year"]
+                    .map((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    selectedDuration = newValue!;
+                  });
+                },
+                value: selectedDuration,
+              ),
+            ],
           ),
           SizedBox(height: defaultPadding),
           Chart(),
           StorageInfoCard(
             svgSrc: "assets/icons/Documents.svg",
-            title: "Documents Files",
+            title: selectedDuration,
             amountOfFiles: "1.3GB",
             numOfFiles: 1328,
           ),
-          StorageInfoCard(
-            svgSrc: "assets/icons/media.svg",
-            title: "Media Files",
-            amountOfFiles: "15.3GB",
-            numOfFiles: 1328,
-          ),
-          StorageInfoCard(
-            svgSrc: "assets/icons/folder.svg",
-            title: "Other Files",
-            amountOfFiles: "1.3GB",
-            numOfFiles: 1328,
-          ),
-          StorageInfoCard(
-            svgSrc: "assets/icons/unknown.svg",
-            title: "Unknown",
-            amountOfFiles: "1.3GB",
-            numOfFiles: 140,
-          ),
+          // Add other StorageInfoCard instances with updated titles based on selectedDuration
         ],
       ),
     );

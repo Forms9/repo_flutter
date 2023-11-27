@@ -37,6 +37,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  flutter_barcode_scanner: ^2.0.0
 
   google_fonts: ^6.1.0
   flutter_svg: ^2.0.5
@@ -67,32 +68,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-  - assets/icons/doc_file.svg
-  - assets/icons/Documents.svg
-  - assets/icons/drop_box.svg
-  - assets/icons/excel_file.svg
-  - assets/icons/Figma_file.svg
-  - assets/icons/folder.svg
-  - assets/icons/google_drive.svg
-  - assets/icons/logo.svg
-  - assets/icons/media_file.svg
-  - assets/icons/media.svg
-  - assets/icons/menu_dashboard.svg
-  - assets/icons/menu_doc.svg
-  - assets/icons/menu_notification.svg
-  - assets/icons/menu_profile.svg
-  - assets/icons/menu_setting.svg
-  - assets/icons/menu_store.svg 
-  - assets/icons/menu_task.svg
-  - assets/icons/menu_tran.svg
-  - assets/icons/one_drive.svg
-  - assets/icons/pdf_file.svg
-  - assets/icons/Search.svg
-  - assets/icons/sound_file.svg
-  - assets/icons/unknown.svg
-  - assets/icons/xd_file.svg
-  - assets/images/logo.png
-  - assets/images/profile_pic.png
+  - assets/images/
+  - assets/icons/
+  
 # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
