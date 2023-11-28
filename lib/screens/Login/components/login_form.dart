@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:reporting_app/controllers/MenuAppController.dart';
+import 'package:reporting_app/screens/Login/Signup/signup_screen.dart';
 import 'package:reporting_app/screens/main/main_screen.dart';
 
 import '../../../components/already_have_an_account_acheck.dart';
 import '../../../constants.dart';
-import '../../Signup/signup_screen.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -46,12 +48,17 @@ class LoginForm extends StatelessWidget {
           const SizedBox(height: defaultPadding),
           ElevatedButton(
             onPressed: () {
-              Navigator.push(
-                context,
+              Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) {
-                    return MainScreen();
-                  },
+                  builder: (context) => MultiProvider(
+                    providers: [
+                      ChangeNotifierProvider(
+                        create: (context) => MenuAppController(),
+                      ),
+                      // Add other providers if needed
+                    ],
+                    child: MainScreen(),
+                  ),
                 ),
               );
             },

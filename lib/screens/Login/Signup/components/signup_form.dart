@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../../components/already_have_an_account_acheck.dart';
-import '../../../constants.dart';
-import '../../Login/login_screen.dart';
+import 'package:reporting_app/components/already_have_an_account_acheck.dart';
+import 'package:reporting_app/constants.dart';
+import 'package:reporting_app/screens/Login/login_screen.dart';
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({

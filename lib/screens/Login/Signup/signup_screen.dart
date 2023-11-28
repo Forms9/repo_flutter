@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:reporting_app/components/background.dart';
 import 'package:reporting_app/constants.dart';
 import 'package:reporting_app/responsive.dart';
-import '../../components/background.dart';
 import 'components/sign_up_top_image.dart';
 import 'components/signup_form.dart';
 
