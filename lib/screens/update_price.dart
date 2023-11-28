@@ -1,8 +1,18 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:reporting_app/constants.dart';
+import 'package:http/http.dart' as http;
 
-class UpdatePricePage extends StatelessWidget {
+class UpdatePricePage extends StatefulWidget {
   const UpdatePricePage({super.key});
+
+  @override
+  State<UpdatePricePage> createState() => _UpdatePricePageState();
+}
+
+class _UpdatePricePageState extends State<UpdatePricePage> {
+  List<dynamic> users = [];
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +82,45 @@ class UpdatePricePage extends StatelessWidget {
           ),
         ),
         backgroundColor: bgColor,
+        floatingActionButton: FloatingActionButton(
+          onPressed: fetchUsers,
+          child: ListView.builder(
+            itemCount: users.length,
+            itemBuilder: (context, index) {
+              final user = users[index];
+              final name = user['name']['first'];
+              final email = user['email'];
+              final imageUrl = user['picture']['thumbnail'];
+
+              return ListTile(
+                leading:
+                    //  CircleAvatar(
+                    //   // child: Text('${index + 1}'),
+                    // ),
+                    ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: Image.network(imageUrl),
+                ),
+                title: Text(name.toString()),
+                subtitle: Text(email),
+              );
+            },
+          ),
+        ),
       ),
     );
+  }
+
+  void fetchUsers() async {
+    print('fetchUsers called');
+    final url = 'https://randomuser.me/api/?results=100';
+    final uri = Uri.parse(url);
+    final response = await http.get(uri);
+    final body = response.body;
+    final json = jsonDecode(body);
+    setState(() {
+      users = json['results'];
+    });
+    print('fetchUsers completed');
   }
 }
