@@ -7,7 +7,7 @@ import 'package:objectbox/objectbox.dart';
 import 'package:reporting_app/database.dart';
 import 'package:reporting_app/main.dart';
 import 'package:reporting_app/objectbox.g.dart';
-import 'package:reporting_app/screens/Login/desktop_login.dart';
+import 'package:reporting_app/screens/Login/responsive_login/desktop_login.dart';
 
 class GenerateBill extends StatefulWidget {
   const GenerateBill({Key? key}) : super(key: key);

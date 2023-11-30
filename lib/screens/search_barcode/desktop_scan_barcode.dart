@@ -81,7 +81,14 @@ class _DesktopScanBarcodePageState extends State<DesktopScanBarcodePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: windowsAppBar,
+      appBar: AppBar(
+        title: Text(
+          'Search Barcode',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+      ),
       drawer: const SideMenu(),
       body: Column(
         children: [

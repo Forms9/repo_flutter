@@ -1,10 +1,10 @@
 import 'dart:developer';
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:reporting_app/constants.dart';
-import 'package:reporting_app/screens/Login/loginpage.dart';
+import 'package:reporting_app/screens/Login/responsive_login/loginpage.dart';
 import 'package:reporting_app/util/my_box.dart';
 
-import '../../main.dart';
+import '../../../main.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';

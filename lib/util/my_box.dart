@@ -7,12 +7,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:reporting_app/constants.dart';
 import 'package:reporting_app/database.dart';
 import 'package:reporting_app/main.dart';
-// import 'package:forms9_pos_auth/pages/dashboard.dart';
-// import 'package:forms9_pos_auth/pages/generate_bill.dart';
-// import 'package:forms9_pos_auth/pages/recent_bills.dart';
-// import 'package:forms9_pos_auth/pages/scan_barcode.dart';
-// import 'package:forms9_pos_auth/pages/search_product.dart';
-// import 'package:forms9_pos_auth/util/my_tile.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:objectbox/objectbox.dart';
@@ -21,8 +15,6 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
-
-//import '../pages/settings.dart';
 
 class MyBox extends StatelessWidget {
   const MyBox({
