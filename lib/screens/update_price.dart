@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:reporting_app/constants.dart';
 import 'package:http/http.dart' as http;
+import 'package:reporting_app/main.dart';
 
 class UpdatePricePage extends StatefulWidget {
   const UpdatePricePage({super.key});
@@ -42,17 +43,17 @@ class _UpdatePricePageState extends State<UpdatePricePage> {
           itemCount: users.length,
           itemBuilder: (context, index) {
             final user = users[index];
-            final name = user['name']['first'];
-            final email = user['email'];
-            final imageUrl = user['picture']['thumbnail'];
+            final inwardNo = user['Inward_no'];
+            final supplierNames = user['Supplier_names'];
+            final billNumbers = user['Bill_numbers'];
 
             return ListTile(
               leading: ClipRRect(
                 borderRadius: BorderRadius.circular(100),
-                child: Image.network(imageUrl),
+                child: Image.network(billNumbers),
               ),
-              title: Text(name.toString()),
-              subtitle: Text(email),
+              title: Text(inwardNo.toString()),
+              subtitle: Text(supplierNames),
             );
           },
         ),
@@ -62,13 +63,13 @@ class _UpdatePricePageState extends State<UpdatePricePage> {
 
   void fetchUsers() async {
     print('fetchUsers called');
-    final url = 'https://randomuser.me/api/?results=100';
+    final url = 'http://$apiURL/pos/load_table_data/';
     final uri = Uri.parse(url);
     final response = await http.get(uri);
     final body = response.body;
     final json = jsonDecode(body);
     setState(() {
-      users = json['results'];
+      users = json['table_data'];
     });
     print('fetchUsers completed');
   }

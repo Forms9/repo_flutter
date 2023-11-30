@@ -52,21 +52,21 @@ class ProfileCard extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         border: Border.all(color: Colors.white10),
       ),
-      child: Row(
-        children: [
-          Image.asset(
-            "assets/images/profile_pic.png",
-            height: 38,
-          ),
-          if (!Responsive.isMobile(context))
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
-              child: Text("Angelina Jolie"),
-            ),
-          Icon(Icons.keyboard_arrow_down),
-        ],
-      ),
+      // child: Row(
+      //   children: [
+      //     Image.asset(
+      //       "assets/images/profile_pic.png",
+      //       height: 38,
+      //     ),
+      //     if (!Responsive.isMobile(context))
+      //       Padding(
+      //         padding:
+      //             const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
+      //         child: Text("Tej_yen"),
+      //       ),
+      //     Icon(Icons.keyboard_arrow_down),
+      //   ],
+      // ),
     );
   }
 }

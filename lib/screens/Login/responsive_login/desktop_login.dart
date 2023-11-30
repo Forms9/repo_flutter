@@ -2,8 +2,8 @@ import 'dart:developer';
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:reporting_app/constants.dart';
 import 'package:reporting_app/screens/Login/responsive_login/loginpage.dart';
+import 'package:reporting_app/screens/main/components/side_menu.dart';
 import 'package:reporting_app/util/my_box.dart';
-
 import '../../../main.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -59,7 +59,6 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.transparent,
-      appBar: windowsAppBar,
       body: Row(
         children: [
           Expanded(
@@ -68,12 +67,11 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: defaultBackgroundColor,
-                    image: const DecorationImage(
-                      image: AssetImage('assets/images/logo.png'),
-                      fit: BoxFit.contain,
-                      alignment: Alignment.bottomCenter,
-                    ),
+                    color: bgColor, // image: const DecorationImage(
+                    //   image: AssetImage('assets/images/logo.png'),
+                    //   fit: BoxFit.contain,
+                    //   alignment: Alignment.bottomCenter,
+                    // ),
                   ),
                 ),
                 Column(
@@ -87,7 +85,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                           Text(
                             'Welcome',
                             style: GoogleFonts.poppins(
-                              color: defaultTextColor,
+                              color: kPrimaryLightColor,
                               fontWeight: FontWeight.w500,
                               fontSize: 42,
                             ),
@@ -95,7 +93,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                           Text(
                             'Sign In to use the Point of Sale System.',
                             style: GoogleFonts.poppins(
-                              color: defaultTextColor,
+                              color: kPrimaryLightColor,
                               fontWeight: FontWeight.w500,
                               fontSize: 24,
                             ),
@@ -105,7 +103,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                             child: Text(
                               displayDeviceId,
                               style: GoogleFonts.robotoMono(
-                                color: defaultTextColor,
+                                color: kPrimaryLightColor,
                                 fontSize: 10,
                               ),
                             ),
@@ -161,7 +159,6 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                                 getUsers('FEST').then((_) {
                                   setState(() {});
                                 });
-                                ;
                                 // await Future.delayed(
                                 //     const Duration(seconds: 1));
                                 setState(() {});
@@ -169,7 +166,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                               primaryColor:
                                   const Color.fromARGB(255, 65, 226, 210),
                               secondaryColor:
-                                  const Color.fromARGB(255, 122, 251, 238),
+                                  Color.fromARGB(255, 161, 122, 251),
                             ),
                             StoreBox(
                               text: 'Heritage',
@@ -354,7 +351,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
           //   ),
           Expanded(
             child: Container(
-              color: defaultBackgroundColor,
+              color: bgColor,
               child: Column(
                 children: [
                   const Padding(
@@ -364,6 +361,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                     child: Text(
                       "Users for this Store",
                       style: TextStyle(
+                        color: kPrimaryLightColor,
                         fontSize: 24,
                         fontWeight: FontWeight.w500,
                       ),
@@ -377,7 +375,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                         itemCount: userlist.length,
                         itemBuilder: (context, index) {
                           return Material(
-                            color: defaultBackgroundColor,
+                            color: bgColor,
                             child: Padding(
                               padding: const EdgeInsets.only(
                                 top: 10,
@@ -421,10 +419,9 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                                   }
                                 },
                                 trailing: const Icon(
-                                  FontAwesomeIcons.chevronRight,
-                                  size: 16,
-                                  color: Colors.black,
-                                ),
+                                    FontAwesomeIcons.chevronRight,
+                                    size: 16,
+                                    color: bgColor),
                                 tileColor: defaultBgAccentColor,
                               ),
                             ),

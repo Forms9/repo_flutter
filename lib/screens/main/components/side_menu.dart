@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:reporting_app/screens/Login/Welcome/welcome_screen.dart';
+import 'package:reporting_app/screens/Login/responsive_login/desktop_login.dart';
 import 'package:reporting_app/screens/search_barcode/desktop_scan_barcode.dart';
 import 'package:reporting_app/screens/search_supplier.dart';
 import 'package:reporting_app/screens/take_pic.dart';
@@ -86,7 +86,7 @@ class SideMenu extends StatelessWidget {
             press: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => WelcomeScreen()),
+                MaterialPageRoute(builder: (context) => DesktopLoginPage()),
               );
             },
           ),

@@ -22,10 +22,10 @@ late User cUser;
 late String _deviceId;
 
 const String apiURL = "213.123.212.191";
-//const String apiURL = "192.168.1.26:8000";
+// const String apiURL = "192.168.1.26:5000";
 String storeType = "HERI";
 String terminal = "1";
-//String displayDeviceId = "UNKNOWN";
+// String displayDeviceId = "UNKNOWN";
 // String printerName = "Microsoft Print to PDF";
 String printerName = "Bill Printer";
 String displayDeviceId = "32444335-3432-3835-5639-393834324435";
