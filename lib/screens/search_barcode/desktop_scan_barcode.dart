@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'dart:io';
+// import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -87,6 +87,13 @@ class _DesktopScanBarcodePageState extends State<DesktopScanBarcodePage> {
           style: TextStyle(
             color: Colors.white,
           ),
+        ),
+        backgroundColor: bgColor,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       drawer: const SideMenu(),

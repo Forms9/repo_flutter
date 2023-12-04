@@ -80,8 +80,21 @@ class _MobileScanBarcodePageState extends State<MobileScanBarcodePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: handheldAppBar,
-      drawer: const SideMenu(),
+      appBar: AppBar(
+        title: Text(
+          'Search Barcode',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: bgColor,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
       body: Column(
         children: [
           Column(

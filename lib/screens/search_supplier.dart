@@ -77,39 +77,47 @@ class SearchSupplier extends StatelessWidget {
                   ),
                 ],
               ),
-              // SizedBox(height: 16),
-              // Text(
-              //   "Recent Files",
-              //   style: Theme.of(context).textTheme.titleMedium,
-              // ),
-              // SizedBox(
-              //   width: double.infinity,
-              //   child: DataTable(
-              //     columnSpacing: defaultPadding,
-              //     columns: [
-              //       DataColumn(
-              //         label: Text("Supplier Name",
-              //             style: TextStyle(color: Colors.white)),
-              //       ),
-              //       DataColumn(
-              //         label: Text("Supplier Code",
-              //             style: TextStyle(color: Colors.white)),
-              //       ),
-              //       DataColumn(
-              //         label: Text("Contact",
-              //             style: TextStyle(color: Colors.white)),
-              //       ),
-              //       DataColumn(
-              //         label: Text("Address",
-              //             style: TextStyle(color: Colors.white)),
-              //       ),
-              //     ],
-              //     rows: List.generate(
-              //       demoRecentFiles.length,
-              //       (index) => recentFileDataRow(demoRecentFiles[index]),
-              //     ),
-              //   ),
-              // ),
+              SizedBox(height: 16),
+              Text(
+                "Recent Files",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color.fromARGB(
+                      255, 44, 47, 68), // Customize the background color
+                ),
+                padding: EdgeInsets.all(defaultPadding),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: DataTable(
+                    columnSpacing: defaultPadding,
+                    columns: [
+                      DataColumn(
+                        label: Text("Supplier Name",
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                      DataColumn(
+                        label: Text("Supplier Code",
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                      DataColumn(
+                        label: Text("Contact",
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                      DataColumn(
+                        label: Text("Address",
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                    ],
+                    rows: List.generate(
+                      demoRecentFiles.length,
+                      (index) => recentFileDataRow(demoRecentFiles[index]),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

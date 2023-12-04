@@ -1,0 +1,328 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "$R8I7VXI",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$R8I7VXI",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "$R8I7VXI (profile mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$R8I7VXI",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "$R8I7VXI (release mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$R8I7VXI",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "$R97JUCU",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$R97JUCU",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "$R97JUCU (profile mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$R97JUCU",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "$R97JUCU (release mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$R97JUCU",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "$R9B09DZ",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$R9B09DZ",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "$R9B09DZ (profile mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$R9B09DZ",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "$R9B09DZ (release mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$R9B09DZ",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "$REZSWZL",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$REZSWZL",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "$REZSWZL (profile mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$REZSWZL",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "$REZSWZL (release mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$REZSWZL",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "$RLVZRV8",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RLVZRV8",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "$RLVZRV8 (profile mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RLVZRV8",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "$RLVZRV8 (release mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RLVZRV8",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "$RORDWSE",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RORDWSE",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "$RORDWSE (profile mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RORDWSE",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "$RORDWSE (release mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RORDWSE",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "$RTDJKUC",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RTDJKUC",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "$RTDJKUC (profile mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RTDJKUC",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "$RTDJKUC (release mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RTDJKUC",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "$RTM9GK1",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RTM9GK1",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "$RTM9GK1 (profile mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RTM9GK1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "$RTM9GK1 (release mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RTM9GK1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "$RYXLC9R",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RYXLC9R",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "$RYXLC9R (profile mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RYXLC9R",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "$RYXLC9R (release mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RYXLC9R",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "forms9_pos_auth",
+            "cwd": "Users\\tejal\\forms9_pos_auth",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "forms9_pos_auth (profile mode)",
+            "cwd": "Users\\tejal\\forms9_pos_auth",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "forms9_pos_auth (release mode)",
+            "cwd": "Users\\tejal\\forms9_pos_auth",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "Grid-Dashboard",
+            "cwd": "Users\\tejal\\Grid-Dashboard",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "Grid-Dashboard (profile mode)",
+            "cwd": "Users\\tejal\\Grid-Dashboard",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "Grid-Dashboard (release mode)",
+            "cwd": "Users\\tejal\\Grid-Dashboard",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "reporting_app",
+            "cwd": "Users\\tejal\\reporting_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "reporting_app (profile mode)",
+            "cwd": "Users\\tejal\\reporting_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "reporting_app (release mode)",
+            "cwd": "Users\\tejal\\reporting_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "repo_flutter",
+            "cwd": "Users\\tejal\\repo_flutter",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "repo_flutter (profile mode)",
+            "cwd": "Users\\tejal\\repo_flutter",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "repo_flutter (release mode)",
+            "cwd": "Users\\tejal\\repo_flutter",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "ToDo_Fulter",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$R6JBN7X\\ToDo_Fulter",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "ToDo_Fulter (profile mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$R6JBN7X\\ToDo_Fulter",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "ToDo_Fulter (release mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$R6JBN7X\\ToDo_Fulter",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "forms9_pos_auth",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RGU2F5T\\forms9_pos_auth",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "forms9_pos_auth (profile mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RGU2F5T\\forms9_pos_auth",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "forms9_pos_auth (release mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RGU2F5T\\forms9_pos_auth",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "forms9_pos_auth",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RTWMP76\\forms9_pos_auth",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "forms9_pos_auth (profile mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RTWMP76\\forms9_pos_auth",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "forms9_pos_auth (release mode)",
+            "cwd": "$Recycle.Bin\\S-1-5-21-329938140-3731569009-1958846423-1001\\$RTWMP76\\forms9_pos_auth",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

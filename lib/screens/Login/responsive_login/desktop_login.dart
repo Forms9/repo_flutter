@@ -132,7 +132,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                                 //     const Duration(seconds: 1));
                                 setState(() {});
                               },
-                              primaryColor: Color.fromARGB(255, 94, 202, 238),
+                              primaryColor: Color.fromARGB(255, 52, 124, 148),
                               secondaryColor:
                                   const Color.fromARGB(255, 94, 202, 238),
                             ),
@@ -148,13 +148,14 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                                 //     const Duration(seconds: 1));
                                 setState(() {});
                               },
-                              primaryColor: Color.fromARGB(255, 94, 223, 238),
+                              primaryColor: Color.fromARGB(255, 51, 140, 150),
                               secondaryColor:
                                   const Color.fromARGB(255, 94, 223, 238),
                             ),
                             StoreBox(
                               text: 'Festival',
-                              image: const AssetImage('assets/images/logo.png'),
+                              image:
+                                  const AssetImage('assets/images/logo1.png'),
                               press: () async {
                                 getUsers('FEST').then((_) {
                                   setState(() {});
@@ -163,27 +164,25 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                                 //     const Duration(seconds: 1));
                                 setState(() {});
                               },
-                              primaryColor:
-                                  const Color.fromARGB(255, 65, 226, 210),
+                              primaryColor: Color.fromARGB(255, 26, 187, 171),
                               secondaryColor:
                                   Color.fromARGB(255, 161, 122, 251),
                             ),
                             StoreBox(
                               text: 'Heritage',
-                              image: const AssetImage('assets/images/logo.png'),
+                              image: const AssetImage(
+                                  'assets/images/profile_pic.png'),
                               press: () async {
-                                getUsers('HERI').then((_) {
+                                getUsers('FEST').then((_) {
                                   setState(() {});
                                 });
-                                ;
                                 // await Future.delayed(
                                 //     const Duration(seconds: 1));
                                 setState(() {});
                               },
-                              primaryColor:
-                                  const Color.fromARGB(255, 150, 187, 255),
+                              primaryColor: Color.fromARGB(255, 42, 145, 134),
                               secondaryColor:
-                                  const Color.fromARGB(255, 150, 187, 255),
+                                  Color.fromARGB(255, 161, 122, 251),
                             ),
                           ],
                         ),

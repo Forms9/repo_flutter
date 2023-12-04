@@ -33,7 +33,7 @@ var defaultBgAccentColor = const Color.fromARGB(97, 27, 198, 192);
 
 var defaultBackgroundColor = Colors.white;
 
-var defaultTextColor = const Color(0xFF0C2844);
+var defaultTextColor = Color.fromARGB(255, 248, 249, 249);
 
 var drawerTextColor = TextStyle(
   color: defaultTextColor,

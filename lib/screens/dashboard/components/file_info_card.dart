@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../../constants.dart';
 import '../../../models/MyFiles.dart';
 
@@ -37,13 +35,13 @@ class FileInfoCard extends StatelessWidget {
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
                 ),
                 child: SvgPicture.asset(
-                  info.svgSrc ?? 'assets/images/logo.png', // Provide a default SVG source or handle accordingly
+                  info.svgSrc ??
+                      'assets/images/logo.png', // Provide a default SVG source or handle accordingly
                   colorFilter: ColorFilter.mode(
                     info.color ?? Colors.black,
                     BlendMode.srcIn,
                   ),
                 ),
-
               ),
               Icon(Icons.more_vert, color: Colors.white54)
             ],

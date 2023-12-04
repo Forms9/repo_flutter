@@ -129,6 +129,8 @@ class StoreBox extends StatelessWidget {
     required this.secondaryColor,
     required this.image,
     required this.press,
+    // required Icon icon,
+    // required Row child,
   }) : super(key: key);
 
   final String text;
@@ -168,14 +170,18 @@ class StoreBox extends StatelessWidget {
                     width: 80,
                     height: 80,
                     decoration: const BoxDecoration(
-                      color: Colors.white,
+                      color: Color.fromARGB(188, 255, 255, 255),
                       shape: BoxShape.circle,
                     ),
                     child: Center(
                       child: Text(
                         text.substring(0, 1).toUpperCase(),
-                        style: const TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 32),
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 32,
+                          color: const Color.fromARGB(255, 61, 61,
+                              61), // Change the color to your desired color
+                        ),
                       ),
                     ),
                   ),

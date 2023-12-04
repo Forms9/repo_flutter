@@ -39,23 +39,32 @@ class _UpdatePricePageState extends State<UpdatePricePage> {
           onPressed: fetchUsers,
           child: Icon(Icons.refresh),
         ),
-        body: ListView.builder(
-          itemCount: users.length,
-          itemBuilder: (context, index) {
-            final user = users[index];
-            final inwardNo = user['Inward_no'];
-            final supplierNames = user['Supplier_names'];
-            final billNumbers = user['Bill_numbers'];
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              // Your other widgets can go here before the ListView.builder if needed.
 
-            return ListTile(
-              leading: ClipRRect(
-                borderRadius: BorderRadius.circular(100),
-                child: Image.network(billNumbers),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: users.length,
+                itemBuilder: (context, index) {
+                  final user = users[index];
+                  final inwardNo = user['Inward_no'];
+                  final supplierNames = user['Supplier_names'];
+                  // final billNumbers = user['Bill_numbers'];
+
+                  return ListTile(
+                    leading: CircleAvatar(
+                      child: Text('${index + 1}'),
+                    ),
+                    title: Text(inwardNo.toString()),
+                    subtitle: Text(supplierNames),
+                  );
+                },
               ),
-              title: Text(inwardNo.toString()),
-              subtitle: Text(supplierNames),
-            );
-          },
+            ],
+          ),
         ),
       ),
     );

@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'dart:io';
+// import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +11,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:reporting_app/constants.dart';
 import 'package:reporting_app/main.dart';
-import 'package:reporting_app/screens/main/components/side_menu.dart';
 import 'package:stringr/stringr.dart';
 
 class TabletScanBarcodePage extends StatefulWidget {
@@ -81,8 +80,21 @@ class _TabletScanBarcodePageState extends State<TabletScanBarcodePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: handheldAppBar,
-      drawer: const SideMenu(),
+      appBar: AppBar(
+        title: Text(
+          'Search Barcode',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: bgColor,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
       body: Column(
         children: [
           Column(

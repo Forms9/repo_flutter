@@ -47,11 +47,11 @@ class ProfileCard extends StatelessWidget {
         horizontal: defaultPadding,
         vertical: defaultPadding / 2,
       ),
-      decoration: BoxDecoration(
-        color: secondaryColor,
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
-        border: Border.all(color: Colors.white10),
-      ),
+      // decoration: BoxDecoration(
+      //   color: secondaryColor,
+      //   borderRadius: const BorderRadius.all(Radius.circular(10)),
+      //   border: Border.all(color: Colors.white10),
+      // ),
       // child: Row(
       //   children: [
       //     Image.asset(

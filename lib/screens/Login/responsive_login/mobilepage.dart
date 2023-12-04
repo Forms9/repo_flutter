@@ -1,11 +1,11 @@
 // import 'package:adaptive_dialog/adaptive_dialog.dart';
 // import 'package:flutter/material.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-// import 'package:forms9_pos_auth/constant.dart';
-// import 'package:forms9_pos_auth/util/my_box.dart';
 // import 'package:google_fonts/google_fonts.dart';
-// import '../../main.dart';
-// import '../../pages/login.dart';
+// import 'package:reporting_app/constants.dart';
+// import 'package:reporting_app/main.dart';
+// import 'package:reporting_app/screens/Login/responsive_login/loginpage.dart';
+// import 'package:reporting_app/util/my_box.dart';
 
 // class MobileLoginPage extends StatefulWidget {
 //   const MobileLoginPage({Key? key}) : super(key: key);
