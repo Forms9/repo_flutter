@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:reporting_app/screens/Login/responsive_login/desktop_login.dart';
+import 'package:reporting_app/screens/dashboard/dashboard_screen.dart';
 import 'package:reporting_app/screens/search_barcode/desktop_scan_barcode.dart';
 import 'package:reporting_app/screens/search_supplier.dart';
 import 'package:reporting_app/screens/take_pic.dart';
-import 'package:reporting_app/screens/update_price.dart';
+import 'package:reporting_app/screens/update_price/update_price.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -56,7 +57,7 @@ class SideMenu extends StatelessWidget {
             press: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => UpdatePricePage()),
+                MaterialPageRoute(builder: (context) => UpdatePrice()),
               );
             },
           ),
@@ -76,7 +77,7 @@ class SideMenu extends StatelessWidget {
             press: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => UpdatePricePage()),
+                MaterialPageRoute(builder: (context) => DashboardScreen()),
               );
             },
           ),
@@ -96,7 +97,7 @@ class SideMenu extends StatelessWidget {
             press: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => UpdatePricePage()),
+                MaterialPageRoute(builder: (context) => DashboardScreen()),
               );
             },
           ),

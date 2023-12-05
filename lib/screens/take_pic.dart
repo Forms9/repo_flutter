@@ -1,8 +1,19 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:reporting_app/constants.dart';
+import 'package:http/http.dart' as http;
+import 'package:reporting_app/main.dart';
 
-class TakePicPage extends StatelessWidget {
+class TakePicPage extends StatefulWidget {
   const TakePicPage({super.key});
+
+  @override
+  State<TakePicPage> createState() => _TakePicPageState();
+}
+
+class _TakePicPageState extends State<TakePicPage> {
+  List<dynamic> users = [];
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +22,7 @@ class TakePicPage extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text(
-            'Take Pic',
+            'Take Price',
             style: TextStyle(
               color: Colors.white,
             ),
@@ -24,55 +35,51 @@ class TakePicPage extends StatelessWidget {
             },
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        floatingActionButton: FloatingActionButton(
+          onPressed: fetchUsers,
+          child: Icon(Icons.refresh),
+        ),
+        body: SingleChildScrollView(
+          child: Column(
             children: [
-              Expanded(
-                child: TextField(
-                  style: TextStyle(
-                    color: Colors.white, // Set text color to white
-                  ),
-                  decoration: InputDecoration(
-                    hintText: 'Enter Supplier Name',
-                    hintStyle: TextStyle(
-                      color: Colors.white,
-                    ), // Set hint text color to white
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.white,
-                      ), // Set border color to white
+              // Your other widgets can go here before the ListView.builder if needed.
+
+              ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: users.length,
+                itemBuilder: (context, index) {
+                  final user = users[index];
+                  final inwardNo = user['Inward_no'];
+                  final supplierNames = user['Supplier_names'];
+                  // final billNumbers = user['Bill_numbers'];
+
+                  return ListTile(
+                    leading: CircleAvatar(
+                      child: Text('${index + 1}'),
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.white,
-                      ), // Set focused border color to white
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(width: 8),
-              Padding(
-                padding: EdgeInsets.all(16.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Handle button press
-                    print('Search!');
-                  },
-                  child: Row(
-                    children: [
-                      Icon(Icons.search, color: Color.fromARGB(255, 12, 4, 15)),
-                      Text('Search', style: TextStyle(fontSize: 18.0)),
-                    ],
-                  ),
-                ),
+                    title: Text(inwardNo.toString()),
+                    subtitle: Text(supplierNames),
+                  );
+                },
               ),
             ],
           ),
         ),
-        backgroundColor: bgColor,
       ),
     );
+  }
+
+  void fetchUsers() async {
+    print('fetchUsers called');
+    final url = 'http://$apiURL/pos/load_table_data/';
+    final uri = Uri.parse(url);
+    final response = await http.get(uri);
+    final body = response.body;
+    final json = jsonDecode(body);
+    setState(() {
+      users = json['table_data'];
+    });
+    print('fetchUsers completed');
   }
 }

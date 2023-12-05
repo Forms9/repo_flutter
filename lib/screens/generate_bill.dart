@@ -7,7 +7,9 @@ import 'package:objectbox/objectbox.dart';
 import 'package:reporting_app/database.dart';
 import 'package:reporting_app/main.dart';
 import 'package:reporting_app/objectbox.g.dart';
-import 'package:reporting_app/screens/Login/responsive_login/desktop_login.dart';
+import 'package:reporting_app/responsive.dart';
+import 'package:reporting_app/screens/generate_bill/mobile_generate_bill.dart';
+import 'package:reporting_app/screens/generate_bill/tablet_generate_bill.dart';
 
 class GenerateBill extends StatefulWidget {
   const GenerateBill({Key? key}) : super(key: key);
@@ -69,8 +71,13 @@ class _GenerateBillState extends State<GenerateBill> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(),
-        home: DesktopLoginPage());
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(),
+      home: const Responsive(
+        mobile: MobileGenerateBillPage(),
+        tablet: TabletGenerateBillPage(),
+        desktop: TabletGenerateBillPage(),
+      ),
+    );
   }
 }

@@ -11,7 +11,7 @@ import 'package:objectbox/objectbox.dart';
 import 'package:platform_device_id/platform_device_id.dart';
 import 'package:reporting_app/database.dart';
 import 'package:reporting_app/screens/Login/responsive_login/desktop_login.dart';
-import 'package:reporting_app/screens/Login/generate_bill.dart';
+import 'package:reporting_app/screens/generate_bill.dart';
 import 'package:window_manager/window_manager.dart';
 import 'constants.dart';
 
