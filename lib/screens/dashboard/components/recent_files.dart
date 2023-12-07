@@ -61,15 +61,15 @@ DataRow recentFileDataRow(RecentFile fileInfo) {
       DataCell(
         Row(
           children: [
-            SvgPicture.asset(
-              fileInfo.icon ?? 'assets/images/logo.png',
-              height: 30,
-              width: 30,
-            ),
+            // SvgPicture.asset(
+            //   fileInfo.id ?? '',
+            //   height: 30,
+            //   width: 30,
+            // ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
               child: Text(
-                fileInfo.supplier_name!,
+                fileInfo.supplierName!,
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -80,7 +80,7 @@ DataRow recentFileDataRow(RecentFile fileInfo) {
       ),
       DataCell(
         Text(
-          fileInfo.supplier_code!,
+          fileInfo.supplierCode!,
           style: TextStyle(
             color: Colors.white,
           ),

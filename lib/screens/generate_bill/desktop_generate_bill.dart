@@ -16,7 +16,7 @@ import 'package:objectbox/objectbox.dart';
 import 'package:reporting_app/constants.dart';
 import 'package:reporting_app/main.dart';
 import 'package:reporting_app/objectbox.g.dart';
-import 'package:reporting_app/screens/generate_bill/generate_bill.dart';
+import 'package:reporting_app/screens/generate_bill.dart';
 import 'package:reporting_app/screens/main/components/side_menu.dart';
 import 'package:tabbed_view/tabbed_view.dart';
 import 'package:pdf/pdf.dart';

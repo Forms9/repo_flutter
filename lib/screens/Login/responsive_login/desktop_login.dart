@@ -166,7 +166,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                               },
                               primaryColor: Color.fromARGB(255, 26, 187, 171),
                               secondaryColor:
-                                  Color.fromARGB(255, 161, 122, 251),
+                                  const Color.fromARGB(255, 94, 223, 238),
                             ),
                             StoreBox(
                               text: 'Heritage',
@@ -182,7 +182,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                               },
                               primaryColor: Color.fromARGB(255, 42, 145, 134),
                               secondaryColor:
-                                  Color.fromARGB(255, 161, 122, 251),
+                                  const Color.fromARGB(255, 94, 223, 238),
                             ),
                           ],
                         ),
