@@ -11,6 +11,7 @@ import 'package:reporting_app/database.dart';
 import 'package:reporting_app/main.dart';
 import 'package:reporting_app/objectbox.g.dart';
 import 'package:reporting_app/screens/generate_bill/mobile_generate_bill.dart';
+import 'package:reporting_app/screens/main/components/side_menu.dart';
 
 var _controller = TextEditingController();
 
@@ -43,19 +44,10 @@ class _DesktopUpdatePriceState extends State<DesktopUpdatePrice> {
       appBar: AppBar(
         title: Text(
           'Update Price',
-          style: TextStyle(
-            color: Colors.white,
-          ),
         ),
-        backgroundColor: bgColor,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        backgroundColor: kPrimaryLightColor,
       ),
-      // drawer: const SideMenu(),
+      drawer: SideMenu(),
       body: Center(
         child: Container(
           margin: const EdgeInsets.only(left: 300),

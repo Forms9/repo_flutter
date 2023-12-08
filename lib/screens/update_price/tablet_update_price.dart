@@ -41,21 +41,6 @@ class _TabletUpdatePriceState extends State<TabletUpdatePrice> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Update Price',
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: bgColor,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
       drawer: const SideMenu(),
       backgroundColor: bgColor,
       body: Center(

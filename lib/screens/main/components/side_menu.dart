@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:reporting_app/screens/Login/responsive_login/desktop_login.dart';
+import 'package:reporting_app/constants.dart';
+import 'package:reporting_app/screens/Login/Welcome/welcome_screen.dart';
+import 'package:reporting_app/screens/analysis/desktop_recent_analysis.dart';
 import 'package:reporting_app/screens/dashboard/dashboard_screen.dart';
+import 'package:reporting_app/screens/generate_bill.dart';
 import 'package:reporting_app/screens/search_barcode/desktop_scan_barcode.dart';
 import 'package:reporting_app/screens/search_supplier.dart';
 import 'package:reporting_app/screens/take_pic.dart';
@@ -15,6 +18,7 @@ class SideMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: bgColor,
       child: ListView(
         children: [
           DrawerHeader(
@@ -24,10 +28,10 @@ class SideMenu extends StatelessWidget {
             title: "Dashboard",
             svgSrc: "assets/icons/menu_dashboard.svg",
             press: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => MainScreen()),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => DashboardScreen()),
+              );
             },
           ),
           DrawerListTile(
@@ -62,6 +66,16 @@ class SideMenu extends StatelessWidget {
             },
           ),
           DrawerListTile(
+            title: "Generate Bill",
+            svgSrc: "assets/icons/menu_dashboard.svg",
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => GenerateBill()),
+              );
+            },
+          ),
+          DrawerListTile(
             title: "Take Pic",
             svgSrc: "assets/icons/menu_dashboard.svg",
             press: () {
@@ -77,7 +91,8 @@ class SideMenu extends StatelessWidget {
             press: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => DashboardScreen()),
+                MaterialPageRoute(
+                    builder: (context) => DesktopRecentBillsPage()),
               );
             },
           ),
@@ -87,7 +102,7 @@ class SideMenu extends StatelessWidget {
             press: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => DesktopLoginPage()),
+                MaterialPageRoute(builder: (context) => WelcomeScreen()),
               );
             },
           ),

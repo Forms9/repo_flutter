@@ -9,7 +9,6 @@ import 'package:elegant_notification/resources/arrays.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:objectbox/objectbox.dart';
@@ -214,7 +213,6 @@ class _DesktopGenerateBillPageState extends State<DesktopGenerateBillPage> {
     return Scaffold(
       key: TabWidgetKey.tabwidgetkey,
       backgroundColor: defaultBackgroundColor,
-      appBar: windowsAppBar,
       drawer: const SideMenu(),
       body: const Padding(
         padding: EdgeInsets.all(8.0),

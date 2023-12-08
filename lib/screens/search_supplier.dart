@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:reporting_app/constants.dart';
+import 'package:reporting_app/screens/main/components/side_menu.dart';
 
 class SearchSupplier extends StatefulWidget {
   @override
@@ -45,9 +47,12 @@ class _SearchSupplierState extends State<SearchSupplier> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Search Supplier'),
+        backgroundColor: kPrimaryLightColor,
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 80, right: 80, top: 50),
+      backgroundColor: bgColor,
+      drawer: SideMenu(),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.only(left: 80, right: 80, top: 20),
         child: Column(
           children: [
             Padding(
@@ -80,26 +85,33 @@ class _SearchSupplierState extends State<SearchSupplier> {
               ),
             ),
             SizedBox(height: 50),
-            Expanded(
+            Container(
+              height: MediaQuery.of(context).size.height - 200,
               child: _searchResults.isEmpty
                   ? Center(
                       child: Text('No results found'),
                     )
                   : DataTable(
                       columns: [
+                        DataColumn(label: Text('Sr. No')),
                         DataColumn(label: Text('Name')),
                         DataColumn(label: Text('Supplier Code')),
                         DataColumn(label: Text('Contact No.')),
                         DataColumn(label: Text('City')),
                       ],
                       rows: _searchResults
+                          .asMap()
+                          .entries
                           .map(
-                            (result) => DataRow(
+                            (entry) => DataRow(
                               cells: [
-                                DataCell(Text(result['name'] ?? '')),
-                                DataCell(Text(result['supplier_code'] ?? '')),
-                                DataCell(Text(result['mobile_no_1'] ?? '')),
-                                DataCell(Text(result['city'] ?? '')),
+                                DataCell(Text('${entry.key + 1}')),
+                                DataCell(Text(entry.value['name'] ?? '')),
+                                DataCell(
+                                    Text(entry.value['supplier_code'] ?? '')),
+                                DataCell(
+                                    Text(entry.value['mobile_no_1'] ?? '')),
+                                DataCell(Text(entry.value['city'] ?? '')),
                               ],
                             ),
                           )

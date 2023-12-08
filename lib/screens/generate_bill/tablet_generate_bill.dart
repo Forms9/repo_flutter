@@ -6,7 +6,6 @@ import 'package:elegant_notification/resources/arrays.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:objectbox/objectbox.dart';
@@ -264,21 +263,29 @@ class _TabletGenerateBillPageState extends State<TabletGenerateBillPage> {
     // const TabBarView(key: ValueKey(1));
   }
 
-  PreferredSize getAppBar() {
-    if (Platform.isAndroid || Platform.isIOS) {
-      return handheldAppBar;
-    } else {
-      return windowsAppBar;
-    }
-  }
+  // PreferredSize getAppBar() {
+  //   if (Platform.isAndroid || Platform.isIOS) {
+  //     return handheldAppBar;
+  //   } else {
+  //     return windowsAppBar;
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: TabWidgetKey.tabwidgetkey,
-      backgroundColor: defaultBackgroundColor,
-      appBar: getAppBar(),
-      drawer: const SideMenu(),
+      appBar: AppBar(
+        backgroundColor: bgColor,
+        title: Text(
+          'Generate Bill',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+      ),
+      drawer: SideMenu(),
+      backgroundColor: bgColor,
       body: const Padding(
         padding: EdgeInsets.all(8.0),
         child: Row(
@@ -360,7 +367,7 @@ class _TabBarViewState extends State<TabBarView> {
         TabbedViewThemeData.mobile(accentColor: defaultAccentColor)
           ..tab.textStyle = TextStyle(
             fontSize: 18,
-            color: defaultTextColor,
+            color: secondaryColor,
             fontFamily: GoogleFonts.poppins().fontFamily,
           )
           ..tab.padding = const EdgeInsets.only(
@@ -372,10 +379,10 @@ class _TabBarViewState extends State<TabBarView> {
           ..tab.decoration = getTabColor();
 
     themeData.tabsArea.border = Border(
-        top: BorderSide(color: defaultTextColor),
-        right: BorderSide(color: defaultTextColor),
-        left: BorderSide(color: defaultTextColor),
-        bottom: BorderSide(color: defaultTextColor));
+        top: BorderSide(color: secondaryColor),
+        right: BorderSide(color: secondaryColor),
+        left: BorderSide(color: secondaryColor),
+        bottom: BorderSide(color: secondaryColor));
 
     TabbedViewTheme theme = TabbedViewTheme(
       data: themeData,
@@ -1916,7 +1923,7 @@ class _BillPageState extends State<BillPage> {
           Expanded(
             flex: 2,
             child: Container(
-              color: defaultBackgroundColor,
+              color: defaultTextColor,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -1930,7 +1937,7 @@ class _BillPageState extends State<BillPage> {
                           style: GoogleFonts.poppins(
                             fontSize: 22,
                             fontWeight: FontWeight.w600,
-                            color: defaultTextColor,
+                            color: secondaryColor,
                           ),
                         ),
                       ),
@@ -1973,7 +1980,7 @@ class _BillPageState extends State<BillPage> {
                   ),
                   Divider(
                     height: 10,
-                    color: defaultTextColor,
+                    color: secondaryColor,
                     thickness: 1,
                     indent: 15,
                     endIndent: 15,
@@ -1999,7 +2006,7 @@ class _BillPageState extends State<BillPage> {
                               style: GoogleFonts.poppins(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
-                                color: defaultTextColor,
+                                color: secondaryColor,
                               ),
                             ),
                           ),
@@ -2015,7 +2022,7 @@ class _BillPageState extends State<BillPage> {
                               style: GoogleFonts.poppins(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
-                                color: defaultTextColor,
+                                color: secondaryColor,
                               ),
                             ),
                           ),
@@ -2031,7 +2038,7 @@ class _BillPageState extends State<BillPage> {
                               style: GoogleFonts.poppins(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
-                                color: defaultTextColor,
+                                color: secondaryColor,
                               ),
                             ),
                           ),
@@ -2047,7 +2054,7 @@ class _BillPageState extends State<BillPage> {
                               style: GoogleFonts.poppins(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
-                                color: defaultTextColor,
+                                color: secondaryColor,
                               ),
                             ),
                           ),
@@ -2063,7 +2070,7 @@ class _BillPageState extends State<BillPage> {
                               style: GoogleFonts.poppins(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
-                                color: defaultTextColor,
+                                color: secondaryColor,
                               ),
                             ),
                           ),
@@ -2075,7 +2082,7 @@ class _BillPageState extends State<BillPage> {
                   ),
                   Divider(
                     height: 10,
-                    color: defaultTextColor,
+                    color: secondaryColor,
                     thickness: 1,
                     indent: 15,
                     endIndent: 15,
@@ -2097,7 +2104,7 @@ class _BillPageState extends State<BillPage> {
                       },
                       separatorBuilder: (context, index) => Divider(
                         height: 10,
-                        color: defaultTextColor,
+                        color: secondaryColor,
                         thickness: 1,
                         indent: 15,
                         endIndent: 15,
@@ -2108,7 +2115,7 @@ class _BillPageState extends State<BillPage> {
                   // ----- ROW 2 CONTENT -----
                   Divider(
                     height: 5,
-                    color: defaultTextColor,
+                    color: secondaryColor,
                     thickness: 1,
                     indent: 15,
                     endIndent: 15,
@@ -2123,7 +2130,7 @@ class _BillPageState extends State<BillPage> {
                           style: GoogleFonts.poppins(
                             fontSize: 13,
                             fontWeight: FontWeight.w600,
-                            color: defaultTextColor,
+                            color: secondaryColor,
                           ),
                         ),
                       ),
@@ -2259,7 +2266,7 @@ class _BillPageState extends State<BillPage> {
                   ),
                   Divider(
                     height: 10,
-                    color: defaultTextColor,
+                    color: secondaryColor,
                     thickness: 1,
                     indent: 15,
                     endIndent: 15,
@@ -2274,7 +2281,7 @@ class _BillPageState extends State<BillPage> {
                           style: GoogleFonts.poppins(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
-                            color: defaultTextColor,
+                            color: secondaryColor,
                           ),
                         ),
                       ),
@@ -2287,12 +2294,12 @@ class _BillPageState extends State<BillPage> {
                           style: GoogleFonts.poppins(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
-                            color: defaultTextColor,
+                            color: secondaryColor,
                           ),
                         ),
                       ),
                       VerticalDivider(
-                        color: defaultTextColor,
+                        color: secondaryColor,
                         thickness: 1,
                       ),
                       Padding(
@@ -2303,7 +2310,7 @@ class _BillPageState extends State<BillPage> {
                           style: GoogleFonts.poppins(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
-                            color: defaultTextColor,
+                            color: secondaryColor,
                           ),
                         ),
                       ),
@@ -2319,7 +2326,7 @@ class _BillPageState extends State<BillPage> {
                           style: GoogleFonts.poppins(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
-                            color: defaultTextColor,
+                            color: secondaryColor,
                           ),
                         ),
                       ),
@@ -2330,12 +2337,12 @@ class _BillPageState extends State<BillPage> {
             ),
           ),
           VerticalDivider(
-            color: defaultTextColor,
+            color: secondaryColor,
             thickness: 1,
           ),
           Expanded(
             child: Container(
-              color: Colors.white10,
+              color: Colors.white70,
               child: ListView(
                 controller: ScrollController(),
                 children: [
@@ -2392,13 +2399,13 @@ class _BillPageState extends State<BillPage> {
                               },
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(8)),
-                              selectedBorderColor: defaultTextColor,
-                              selectedColor: defaultTextColor,
+                              selectedBorderColor: secondaryColor,
+                              selectedColor: secondaryColor,
                               fillColor: defaultBgAccentColor,
-                              borderColor: defaultTextColor,
+                              borderColor: secondaryColor,
                               hoverColor:
                                   const Color.fromARGB(64, 158, 158, 158),
-                              color: defaultTextColor,
+                              color: secondaryColor,
                               constraints: BoxConstraints.expand(
                                 width:
                                     MediaQuery.of(context).size.width / 4 / 5.4,
@@ -2562,7 +2569,7 @@ class _BillPageState extends State<BillPage> {
                   ),
                   Divider(
                     height: 10,
-                    color: defaultTextColor,
+                    color: secondaryColor,
                     thickness: 1,
                     indent: 15,
                     endIndent: 25,
@@ -2577,7 +2584,7 @@ class _BillPageState extends State<BillPage> {
                           style: GoogleFonts.poppins(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
-                            color: defaultTextColor,
+                            color: secondaryColor,
                           ),
                         ),
                       ),
@@ -2593,7 +2600,7 @@ class _BillPageState extends State<BillPage> {
                           style: GoogleFonts.poppins(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
-                            color: defaultTextColor,
+                            color: secondaryColor,
                           ),
                         ),
                       ),
@@ -2601,7 +2608,7 @@ class _BillPageState extends State<BillPage> {
                   ),
                   Divider(
                     height: 10,
-                    color: defaultTextColor,
+                    color: secondaryColor,
                     thickness: 1,
                     indent: 15,
                     endIndent: 25,
@@ -2628,10 +2635,10 @@ class _BillPageState extends State<BillPage> {
                         });
                       },
                       borderRadius: const BorderRadius.all(Radius.circular(8)),
-                      selectedBorderColor: defaultTextColor,
-                      selectedColor: defaultTextColor,
+                      selectedBorderColor: secondaryColor,
+                      selectedColor: secondaryColor,
                       fillColor: defaultBgAccentColor,
-                      borderColor: defaultTextColor,
+                      borderColor: secondaryColor,
                       constraints: BoxConstraints.expand(
                         width: MediaQuery.of(context).size.width / 3 / 3.5,
                         height: 30,
@@ -2859,7 +2866,7 @@ class _BillPageState extends State<BillPage> {
                   ),
                   Divider(
                     height: 10,
-                    color: defaultTextColor,
+                    color: secondaryColor,
                     thickness: 1,
                     indent: 15,
                     endIndent: 25,
@@ -2874,7 +2881,7 @@ class _BillPageState extends State<BillPage> {
                           style: GoogleFonts.poppins(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
-                            color: defaultTextColor,
+                            color: secondaryColor,
                           ),
                         ),
                       ),
@@ -2890,7 +2897,7 @@ class _BillPageState extends State<BillPage> {
                           style: GoogleFonts.poppins(
                             fontSize: 20,
                             fontWeight: FontWeight.w600,
-                            color: defaultTextColor,
+                            color: secondaryColor,
                           ),
                         ),
                       ),
@@ -2898,7 +2905,7 @@ class _BillPageState extends State<BillPage> {
                   ),
                   Divider(
                     height: 5,
-                    color: defaultTextColor,
+                    color: secondaryColor,
                     thickness: 1,
                     indent: 15,
                     endIndent: 25,
@@ -2913,7 +2920,7 @@ class _BillPageState extends State<BillPage> {
                           style: GoogleFonts.poppins(
                             fontSize: 13,
                             fontWeight: FontWeight.w400,
-                            color: defaultTextColor,
+                            color: secondaryColor,
                           ),
                         ),
                         const Spacer(),
@@ -2939,7 +2946,7 @@ class _BillPageState extends State<BillPage> {
                   ),
                   Divider(
                     height: 10,
-                    color: defaultTextColor,
+                    color: secondaryColor,
                     thickness: 1,
                     indent: 15,
                     endIndent: 25,
@@ -3334,7 +3341,7 @@ class _BillItemState extends State<BillItem> {
                   style: GoogleFonts.poppins(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
-                    color: defaultTextColor,
+                    color: secondaryColor,
                   ),
                 ),
               ),
@@ -3420,7 +3427,7 @@ class _BillItemState extends State<BillItem> {
                   style: GoogleFonts.poppins(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
-                    color: defaultTextColor,
+                    color: secondaryColor,
                   ),
                 ),
               ),
@@ -3611,7 +3618,7 @@ class _BillItemState extends State<BillItem> {
                   style: GoogleFonts.poppins(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
-                    color: defaultTextColor,
+                    color: secondaryColor,
                   ),
                 ),
               ),

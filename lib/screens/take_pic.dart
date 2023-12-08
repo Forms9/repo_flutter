@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:reporting_app/constants.dart';
 import 'package:http/http.dart' as http;
 import 'package:reporting_app/main.dart';
+import 'package:reporting_app/screens/main/components/side_menu.dart';
 
 class TakePicPage extends StatefulWidget {
   const TakePicPage({super.key});
@@ -23,18 +24,11 @@ class _TakePicPageState extends State<TakePicPage> {
         appBar: AppBar(
           title: Text(
             'Take Price',
-            style: TextStyle(
-              color: Colors.white,
-            ),
           ),
-          backgroundColor: bgColor,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.white),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+          backgroundColor: kPrimaryLightColor,
         ),
+        drawer: SideMenu(),
+        backgroundColor: bgColor,
         floatingActionButton: FloatingActionButton(
           onPressed: fetchUsers,
           child: Icon(Icons.refresh),
