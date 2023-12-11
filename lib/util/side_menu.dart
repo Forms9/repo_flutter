@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:reporting_app/constants.dart';
-import 'package:reporting_app/screens/Login/Welcome/welcome_screen.dart';
-import 'package:reporting_app/screens/analysis/desktop_recent_analysis.dart';
+import 'package:reporting_app/screens/recent_bills/recent_bill.dart';
 import 'package:reporting_app/screens/dashboard/dashboard_screen.dart';
-import 'package:reporting_app/screens/generate_bill.dart';
+import 'package:reporting_app/screens/generate_bill/generate_bill.dart';
 import 'package:reporting_app/screens/search_barcode/desktop_scan_barcode.dart';
-import 'package:reporting_app/screens/search_supplier.dart';
-import 'package:reporting_app/screens/take_pic.dart';
+import 'package:reporting_app/screens/search_supplier/search_supplier.dart';
+import 'package:reporting_app/screens/take_pic/take_pic.dart';
 import 'package:reporting_app/screens/update_price/update_price.dart';
 
 class SideMenu extends StatelessWidget {
@@ -86,36 +85,35 @@ class SideMenu extends StatelessWidget {
             },
           ),
           DrawerListTile(
-            title: "Analysis",
+            title: "Recent Bills",
             svgSrc: "assets/icons/menu_dashboard.svg",
             press: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => DesktopRecentBillsPage()),
+                MaterialPageRoute(builder: (context) => RecentBill()),
               );
             },
           ),
-          DrawerListTile(
-            title: "Profile",
-            svgSrc: "assets/icons/menu_dashboard.svg",
-            press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => WelcomeScreen()),
-              );
-            },
-          ),
-          DrawerListTile(
-            title: "Settings",
-            svgSrc: "assets/icons/menu_dashboard.svg",
-            press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => DashboardScreen()),
-              );
-            },
-          ),
+          // DrawerListTile(
+          //   title: "Profile",
+          //   svgSrc: "assets/icons/menu_dashboard.svg",
+          //   press: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => WelcomeScreen()),
+          //     );
+          //   },
+          // ),
+          // DrawerListTile(
+          //   title: "Settings",
+          //   svgSrc: "assets/icons/menu_dashboard.svg",
+          //   press: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => DashboardScreen()),
+          //     );
+          //   },
+          // ),
         ],
       ),
     );

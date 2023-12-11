@@ -8,6 +8,7 @@ import 'package:reporting_app/database.dart';
 import 'package:reporting_app/main.dart';
 import 'package:reporting_app/objectbox.g.dart';
 import 'package:reporting_app/responsive.dart';
+import 'package:reporting_app/screens/generate_bill/desktop_generate_bill.dart';
 import 'package:reporting_app/screens/generate_bill/mobile_generate_bill.dart';
 import 'package:reporting_app/screens/generate_bill/tablet_generate_bill.dart';
 

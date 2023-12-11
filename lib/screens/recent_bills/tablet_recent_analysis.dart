@@ -2,21 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:objectbox/objectbox.dart';
 import 'package:reporting_app/constants.dart';
 import 'package:reporting_app/database.dart';
 import 'package:reporting_app/main.dart';
 import 'package:reporting_app/objectbox.g.dart';
-import 'package:reporting_app/screens/main/components/side_menu.dart';
+import 'package:reporting_app/util/my_tile.dart';
+import 'package:reporting_app/util/side_menu.dart';
 
-class MobileRecentBillsPage extends StatefulWidget {
-  const MobileRecentBillsPage({Key? key}) : super(key: key);
+class TabletRecentBillPage extends StatefulWidget {
+  const TabletRecentBillPage({Key? key}) : super(key: key);
 
   @override
-  State<MobileRecentBillsPage> createState() => _MobileRecentBillsPageState();
+  State<TabletRecentBillPage> createState() =>
+      _TabletRecentBillPagesPageState();
 }
 
-class _MobileRecentBillsPageState extends State<MobileRecentBillsPage> {
+class _TabletRecentBillPagesPageState extends State<TabletRecentBillPage> {
   late List<SaleData> recentSales;
 
   TextEditingController saleNumber = TextEditingController();
@@ -70,16 +71,23 @@ class _MobileRecentBillsPageState extends State<MobileRecentBillsPage> {
     setState(() {});
   }
 
-  Future<bool> disableBackPressed() async {
-    return false;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: defaultBackgroundColor,
-      appBar: handheldAppBar,
-      drawer: const SideMenu(),
+      backgroundColor: bgColor,
+      appBar: AppBar(
+        title: Text(
+          'Analysis',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Color(0xFF655B87),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+      ),
+      drawer: SideMenu(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
@@ -89,23 +97,22 @@ class _MobileRecentBillsPageState extends State<MobileRecentBillsPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8),
+                    padding: settingsCategoryPadding,
                     child: Text(
                       'Recent Bills',
                       style: GoogleFonts.poppins(
-                        fontSize: 36,
+                        fontSize: 32,
                         fontWeight: FontWeight.w700,
                         color: defaultTextColor,
                       ),
                     ),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsets.only(bottom: 8, left: 8, right: 8),
-                    child: Column(
+                    padding: const EdgeInsets.all(16),
+                    child: Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                        Expanded(
+                          flex: 5,
                           child: TextField(
                             controller: saleNumber,
                             style: GoogleFonts.poppins(
@@ -144,8 +151,9 @@ class _MobileRecentBillsPageState extends State<MobileRecentBillsPage> {
                             onSubmitted: (value) => {query()},
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8.0, bottom: 8),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          flex: 5,
                           child: TextField(
                             controller: productNumber,
                             style: GoogleFonts.poppins(
@@ -184,63 +192,55 @@ class _MobileRecentBillsPageState extends State<MobileRecentBillsPage> {
                             onSubmitted: (value) => {query()},
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 8.0, right: 8.0, bottom: 8.0),
-                          child: ElevatedButton.icon(
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
-                                padding: const EdgeInsets.all(18),
+                                padding: const EdgeInsets.all(12),
                                 primary: defaultAccentColor),
                             onPressed: () => {query()},
-                            label: const Text("SEARCH"),
-                            icon: const FaIcon(
+                            child: const FaIcon(
                               FontAwesomeIcons.magnifyingGlass,
                               size: 25,
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                  Container(
-                    //color: Colors.white,
-                    child: Expanded(
-                      child: ListView.builder(
-                        controller: ScrollController(),
-                        shrinkWrap: true,
-                        itemCount: recentSales.length,
-                        itemBuilder: (context, index) {
-                          return RecentBillsTile(
-                            title: recentSales[index].saleNumber,
-                            subtitle:
-                                formatBill(recentSales[index].data.join("---")),
-                            billdate:
-                                "${DateFormat("dd/MM/yy").format(recentSales[index].saleCreatedDate)} ${recentSales[index].saleCreatedDate.hour}:${recentSales[index].saleCreatedDate.minute}",
-                            billtotal: double.parse(
-                                        recentSales[index].saleTotal) <
-                                    0
-                                ? "-£${(double.parse(recentSales[index].saleTotal) * -1).toStringAsFixed(2)}"
-                                : "£${double.parse(recentSales[index].saleTotal).toStringAsFixed(2)}",
-                            billdistotal: (double.parse(
-                                            recentSales[index].saleTotal) -
-                                        double.parse(
-                                            recentSales[index].saleDiscount)) >=
-                                    0
-                                ? "£${(double.parse(recentSales[index].saleTotal) - double.parse(recentSales[index].saleDiscount)).toStringAsFixed(2)}"
-                                : "-£${((double.parse(recentSales[index].saleTotal) - double.parse(recentSales[index].saleDiscount)) * -1).toStringAsFixed(2)}",
-                            press: () {},
-                          );
-                        },
-                      ),
+                  Expanded(
+                    child: ListView.builder(
+                      controller: ScrollController(),
+                      itemCount: recentSales.length,
+                      itemBuilder: (context, index) {
+                        return RecentBillsTabletDashboardTile(
+                          title: recentSales[index].saleNumber,
+                          // subtitle: recentSales[index]
+                          //     .data
+                          //     .join("\n")
+                          //     .replaceAll(",", "        "),
+                          subtitle:
+                              formatBill(recentSales[index].data.join("---")),
+                          billdate:
+                              "${DateFormat("dd/MM/yy").format(recentSales[index].saleCreatedDate)}    ${recentSales[index].saleCreatedDate.hour}:${recentSales[index].saleCreatedDate.minute}",
+                          billtotal: double.parse(
+                                      recentSales[index].saleTotal) <
+                                  0
+                              ? "-£${(double.parse(recentSales[index].saleTotal) * -1).toStringAsFixed(2)}"
+                              : "£${double.parse(recentSales[index].saleTotal).toStringAsFixed(2)}",
+                          billdistotal: (double.parse(
+                                          recentSales[index].saleTotal) -
+                                      double.parse(
+                                          recentSales[index].saleDiscount)) >=
+                                  0
+                              ? "£${(double.parse(recentSales[index].saleTotal) - double.parse(recentSales[index].saleDiscount)).toStringAsFixed(2)}"
+                              : "-£${((double.parse(recentSales[index].saleTotal) - double.parse(recentSales[index].saleDiscount)) * -1).toStringAsFixed(2)}",
+                          press: () {},
+                        );
+                      },
                     ),
                   ),
                 ],
@@ -283,141 +283,4 @@ String formatBill(String data) {
     formattedData += s;
   }
   return formattedData;
-}
-
-class RecentBillsTile extends StatelessWidget {
-  const RecentBillsTile({
-    Key? key,
-    required this.title,
-    required this.subtitle,
-    required this.billdate,
-    required this.billtotal,
-    required this.billdistotal,
-    required this.press,
-  }) : super(key: key);
-
-  final String title;
-  final String subtitle;
-  final String billdate;
-  final String billtotal;
-  final String billdistotal;
-  final VoidCallback? press;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: tilePadding,
-      child: Material(
-        child: ListTile(
-          tileColor: Colors.grey[100],
-          hoverColor: defaultBgAccentColor,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-              side: const BorderSide(color: Colors.grey, width: 1)),
-          title: Padding(
-            padding: const EdgeInsets.only(bottom: 8, top: 8),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      "Bill Number : ",
-                      style: TextStyle(
-                        color: defaultTextColor,
-                        fontFamily: GoogleFonts.poppins().fontFamily,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    Text(
-                      title,
-                      style: TextStyle(
-                        color: defaultTextColor,
-                        fontFamily: GoogleFonts.poppins().fontFamily,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                    const Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 25.0),
-                      child: Text(
-                        billdate,
-                        style: TextStyle(
-                          color: defaultTextColor,
-                          fontFamily: GoogleFonts.poppins().fontFamily,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Divider(
-                  height: 10,
-                  color: defaultTextColor,
-                  thickness: 1,
-                  endIndent: 10,
-                ),
-              ],
-            ),
-          ),
-          subtitle: Padding(
-            padding: const EdgeInsets.only(bottom: 8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(subtitle, style: TextStyle(fontSize: 12)),
-                Row(
-                  children: [
-                    Text(
-                      "Bill Total : ",
-                      style: TextStyle(
-                        color: defaultTextColor,
-                        fontFamily: GoogleFonts.poppins().fontFamily,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    Text(
-                      billtotal,
-                      style: TextStyle(
-                        color: defaultTextColor,
-                        fontFamily: GoogleFonts.poppins().fontFamily,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Text(
-                      "Discounted Bill Total : ",
-                      style: TextStyle(
-                        color: defaultTextColor,
-                        fontFamily: GoogleFonts.poppins().fontFamily,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    Text(
-                      billdistotal,
-                      style: TextStyle(
-                        color: defaultTextColor,
-                        fontFamily: GoogleFonts.poppins().fontFamily,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          onTap: press,
-        ),
-      ),
-    );
-  }
 }

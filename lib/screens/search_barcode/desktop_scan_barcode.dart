@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'dart:ffi';
 // import 'dart:io';
+import 'package:flutter/material.dart' as ui;
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +13,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:reporting_app/constants.dart';
 import 'package:reporting_app/main.dart';
-import 'package:reporting_app/screens/main/components/side_menu.dart';
+import 'package:reporting_app/util/side_menu.dart';
 import 'package:stringr/stringr.dart';
 
 class DesktopScanBarcodePage extends StatefulWidget {
@@ -26,6 +28,8 @@ class _DesktopScanBarcodePageState extends State<DesktopScanBarcodePage> {
   final search = TextEditingController();
   bool notFound = false;
 
+  double labelQty = 0.0;
+  String invoiceNo = "";
   String productName = "";
   String supplierName = "";
   String quantity = "";
@@ -52,6 +56,8 @@ class _DesktopScanBarcodePageState extends State<DesktopScanBarcodePage> {
       if (data.toString().contains("Not Found") ||
           data.toString().contains("403")) {
         notFound = true;
+        labelQty = 0.0;
+        invoiceNo = "";
         productName = "";
         supplierName = "";
         quantity = "";
@@ -64,6 +70,8 @@ class _DesktopScanBarcodePageState extends State<DesktopScanBarcodePage> {
       }
       var jsonData = json.decode(data);
       var productData = json.decode(jsonData["Product_Data"]);
+      labelQty = productData[0]["Label_qty"];
+      invoiceNo = productData[0]["Invoice_No"];
       productName = productData[0]["Product_name"];
       supplierName = productData[0]["supplier"];
       quantity = productData[0]["packed_quantity"].toString();
@@ -81,13 +89,20 @@ class _DesktopScanBarcodePageState extends State<DesktopScanBarcodePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: bgColor,
       appBar: AppBar(
         title: Text(
-          'Search Barcode',
+          'Scan Barcode',
+          style: TextStyle(
+            color: Colors.white,
+          ),
         ),
-        backgroundColor: kPrimaryLightColor,
+        backgroundColor: Color(0xFF655B87),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
       ),
-      drawer: const SideMenu(),
+      drawer: SideMenu(),
       body: Column(
         children: [
           Column(
@@ -103,11 +118,12 @@ class _DesktopScanBarcodePageState extends State<DesktopScanBarcodePage> {
                       fit: BoxFit.cover,
                       onDetect: (barcode) {
                         MobileScannerArguments(
-                          size: Size.fromWidth(
+                          size: ui.Size.fromWidth(
                             MediaQuery.of(context).size.width,
                           ),
                           hasTorch: false,
                         );
+
                         HapticFeedback.vibrate();
                         log(
                           barcode.toString(),
@@ -223,6 +239,60 @@ class _DesktopScanBarcodePageState extends State<DesktopScanBarcodePage> {
                         ),
                       ],
                     ),
+                  ),
+                ),
+              ),
+              Visibility(
+                visible: !notFound,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Text(
+                        "Label Qty : ",
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: defaultTextColor,
+                        ),
+                      ),
+                      Text(
+                        labelQty.toString(),
+                        style: TextStyle(
+                          color: defaultTextColor,
+                          fontFamily: GoogleFonts.poppins().fontFamily,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Visibility(
+                visible: !notFound,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Text(
+                        "Invoice Number : ",
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: defaultTextColor,
+                        ),
+                      ),
+                      Text(
+                        invoiceNo,
+                        style: TextStyle(
+                          color: defaultTextColor,
+                          fontFamily: GoogleFonts.poppins().fontFamily,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

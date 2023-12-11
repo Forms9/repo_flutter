@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+// ignore: unnecessary_import
 import 'package:objectbox/objectbox.dart';
 import 'package:provider/provider.dart';
 import 'package:reporting_app/constants.dart';
@@ -8,7 +9,7 @@ import 'package:reporting_app/controllers/MenuAppController.dart';
 import 'package:reporting_app/database.dart';
 import 'package:reporting_app/main.dart';
 import 'package:reporting_app/objectbox.g.dart';
-import 'package:reporting_app/screens/main/main_screen.dart';
+import 'package:reporting_app/util/main_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:developer';
 
@@ -41,6 +42,7 @@ loginfunction(BuildContext context) async {
       }
 
       //getProductData();
+      // ignore: use_build_context_synchronously
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) => MultiProvider(
@@ -144,6 +146,7 @@ Future<void> getUsers(String storename) async {
 }
 
 class LoginPage extends StatefulWidget {
+  // ignore: use_super_parameters
   const LoginPage({Key? key}) : super(key: key);
 
   @override

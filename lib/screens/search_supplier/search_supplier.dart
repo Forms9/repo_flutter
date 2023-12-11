@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:reporting_app/constants.dart';
-import 'package:reporting_app/screens/main/components/side_menu.dart';
+import 'package:reporting_app/util/side_menu.dart';
 
 class SearchSupplier extends StatefulWidget {
   @override
@@ -45,11 +45,19 @@ class _SearchSupplierState extends State<SearchSupplier> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Search Supplier'),
-        backgroundColor: kPrimaryLightColor,
-      ),
       backgroundColor: bgColor,
+      appBar: AppBar(
+        title: Text(
+          'Search Supplier',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Color(0xFF655B87),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+      ),
       drawer: SideMenu(),
       body: SingleChildScrollView(
         padding: const EdgeInsets.only(left: 80, right: 80, top: 20),

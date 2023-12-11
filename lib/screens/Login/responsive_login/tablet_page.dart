@@ -1,20 +1,19 @@
 import 'dart:developer';
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:reporting_app/constants.dart';
+import 'package:reporting_app/main.dart';
 import 'package:reporting_app/screens/Login/loginpage.dart';
-import 'package:reporting_app/util/side_menu.dart';
 import 'package:reporting_app/util/my_box.dart';
-import '../../../main.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class DesktopLoginPage extends StatefulWidget {
-  const DesktopLoginPage({Key? key}) : super(key: key);
+class TabletLoginPage extends StatefulWidget {
+  const TabletLoginPage({Key? key}) : super(key: key);
 
   @override
-  State<DesktopLoginPage> createState() => _DesktopLoginPageState();
+  State<TabletLoginPage> createState() => _TabletLoginPageState();
 }
 
 Color getColor(Set<MaterialState> states) {
@@ -29,7 +28,7 @@ Color getColor(Set<MaterialState> states) {
   return defaultTextColor;
 }
 
-class _DesktopLoginPageState extends State<DesktopLoginPage> {
+class _TabletLoginPageState extends State<TabletLoginPage> {
   // Dynamically show the password to the user
   bool _isObscure = true;
 
@@ -67,11 +66,12 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: bgColor, // image: const DecorationImage(
-                    //   image: AssetImage('assets/images/logo.png'),
-                    //   fit: BoxFit.contain,
-                    //   alignment: Alignment.bottomCenter,
-                    // ),
+                    color: defaultBackgroundColor,
+                    image: const DecorationImage(
+                      image: AssetImage('assets/images/login_image.jpg'),
+                      fit: BoxFit.contain,
+                      alignment: Alignment.bottomCenter,
+                    ),
                   ),
                 ),
                 Column(
@@ -85,7 +85,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                           Text(
                             'Welcome',
                             style: GoogleFonts.poppins(
-                              color: kPrimaryLightColor,
+                              color: defaultTextColor,
                               fontWeight: FontWeight.w500,
                               fontSize: 42,
                             ),
@@ -93,7 +93,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                           Text(
                             'Sign In to use the Point of Sale System.',
                             style: GoogleFonts.poppins(
-                              color: kPrimaryLightColor,
+                              color: defaultTextColor,
                               fontWeight: FontWeight.w500,
                               fontSize: 24,
                             ),
@@ -103,7 +103,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                             child: Text(
                               displayDeviceId,
                               style: GoogleFonts.robotoMono(
-                                color: kPrimaryLightColor,
+                                color: defaultTextColor,
                                 fontSize: 10,
                               ),
                             ),
@@ -123,7 +123,8 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                           children: [
                             StoreBox(
                               text: 'Shree Venilals',
-                              image: const AssetImage('assets/images/logo.png'),
+                              image: const AssetImage(
+                                  'assets/images/venilals.png'),
                               press: () async {
                                 getUsers('VENI').then((_) {
                                   setState(() {});
@@ -132,13 +133,14 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                                 //     const Duration(seconds: 1));
                                 setState(() {});
                               },
-                              primaryColor: Color.fromARGB(255, 52, 124, 148),
+                              primaryColor: Color.fromARGB(255, 94, 202, 238),
                               secondaryColor:
                                   const Color.fromARGB(255, 94, 202, 238),
                             ),
                             StoreBox(
                               text: 'Celebrations',
-                              image: const AssetImage('assets/images/logo.png'),
+                              image: const AssetImage(
+                                  'assets/images/venilals.png'),
                               press: () async {
                                 getUsers('CELE').then((_) {
                                   setState(() {});
@@ -148,41 +150,45 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                                 //     const Duration(seconds: 1));
                                 setState(() {});
                               },
-                              primaryColor: Color.fromARGB(255, 51, 140, 150),
+                              primaryColor: Color.fromARGB(255, 94, 223, 238),
                               secondaryColor:
                                   const Color.fromARGB(255, 94, 223, 238),
                             ),
                             StoreBox(
                               text: 'Festival',
-                              image:
-                                  const AssetImage('assets/images/logo1.png'),
+                              image: const AssetImage(
+                                  'assets/images/venilals.png'),
                               press: () async {
                                 getUsers('FEST').then((_) {
                                   setState(() {});
                                 });
+                                ;
                                 // await Future.delayed(
                                 //     const Duration(seconds: 1));
                                 setState(() {});
                               },
-                              primaryColor: Color.fromARGB(255, 26, 187, 171),
+                              primaryColor:
+                                  const Color.fromARGB(255, 65, 226, 210),
                               secondaryColor:
-                                  const Color.fromARGB(255, 94, 223, 238),
+                                  const Color.fromARGB(255, 122, 251, 238),
                             ),
                             StoreBox(
                               text: 'Heritage',
                               image: const AssetImage(
-                                  'assets/images/profile_pic.png'),
+                                  'assets/images/venilals.png'),
                               press: () async {
-                                getUsers('FEST').then((_) {
+                                getUsers('HERI').then((_) {
                                   setState(() {});
                                 });
+                                ;
                                 // await Future.delayed(
                                 //     const Duration(seconds: 1));
                                 setState(() {});
                               },
-                              primaryColor: Color.fromARGB(255, 42, 145, 134),
+                              primaryColor:
+                                  const Color.fromARGB(255, 150, 187, 255),
                               secondaryColor:
-                                  const Color.fromARGB(255, 94, 223, 238),
+                                  const Color.fromARGB(255, 150, 187, 255),
                             ),
                           ],
                         ),
@@ -350,7 +356,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
           //   ),
           Expanded(
             child: Container(
-              color: bgColor,
+              color: defaultBackgroundColor,
               child: Column(
                 children: [
                   const Padding(
@@ -360,7 +366,6 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                     child: Text(
                       "Users for this Store",
                       style: TextStyle(
-                        color: kPrimaryLightColor,
                         fontSize: 24,
                         fontWeight: FontWeight.w500,
                       ),
@@ -374,7 +379,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                         itemCount: userlist.length,
                         itemBuilder: (context, index) {
                           return Material(
-                            color: bgColor,
+                            color: defaultBackgroundColor,
                             child: Padding(
                               padding: const EdgeInsets.only(
                                 top: 10,
@@ -418,9 +423,10 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                                   }
                                 },
                                 trailing: const Icon(
-                                    FontAwesomeIcons.chevronRight,
-                                    size: 16,
-                                    color: bgColor),
+                                  FontAwesomeIcons.chevronRight,
+                                  size: 16,
+                                  color: Colors.black,
+                                ),
                                 tileColor: defaultBgAccentColor,
                               ),
                             ),

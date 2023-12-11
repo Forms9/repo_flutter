@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:reporting_app/screens/dashboard/components/my_fields.dart';
-import 'package:reporting_app/screens/dashboard/components/recent_files.dart';
 import '../../constants.dart';
 import '../../responsive.dart';
 import 'components/header.dart';
@@ -20,7 +19,7 @@ class DashboardScreen extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
+                Flexible(
                   flex: 5,
                   child: Column(
                     children: [
@@ -37,7 +36,7 @@ class DashboardScreen extends StatelessWidget {
                   SizedBox(width: defaultPadding),
                 // On Mobile means if the screen is less than 850 we don't want to show it
                 if (!Responsive.isMobile(context))
-                  Expanded(
+                  Flexible(
                     flex: 2,
                     child: StorageDetails(),
                   ),

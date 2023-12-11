@@ -7,8 +7,8 @@ import 'package:reporting_app/constants.dart';
 import 'package:reporting_app/database.dart';
 import 'package:reporting_app/main.dart';
 import 'package:reporting_app/objectbox.g.dart';
-import 'package:reporting_app/screens/analysis/mobile_recent_analysis.dart';
-import 'package:reporting_app/screens/main/components/side_menu.dart';
+import 'package:reporting_app/util/my_tile.dart';
+import 'package:reporting_app/util/side_menu.dart';
 
 class DesktopRecentBillsPage extends StatefulWidget {
   const DesktopRecentBillsPage({Key? key}) : super(key: key);
@@ -74,17 +74,24 @@ class _DesktopRecentBillsPageState extends State<DesktopRecentBillsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Analysis'),
-        backgroundColor: kPrimaryLightColor,
-      ),
       backgroundColor: bgColor,
+      appBar: AppBar(
+        title: Text(
+          'Analysis',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Color(0xFF655B87),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+      ),
       drawer: SideMenu(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
           children: [
-            const SideMenu(),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,7 +101,7 @@ class _DesktopRecentBillsPageState extends State<DesktopRecentBillsPage> {
                     child: Text(
                       'Recent Bills',
                       style: GoogleFonts.poppins(
-                        fontSize: 48,
+                        fontSize: 32,
                         fontWeight: FontWeight.w700,
                         color: defaultTextColor,
                       ),
@@ -105,7 +112,7 @@ class _DesktopRecentBillsPageState extends State<DesktopRecentBillsPage> {
                     child: Row(
                       children: [
                         Expanded(
-                          flex: 8,
+                          flex: 5,
                           child: TextField(
                             controller: saleNumber,
                             style: GoogleFonts.poppins(

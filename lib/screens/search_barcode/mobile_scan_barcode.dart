@@ -10,7 +10,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:reporting_app/constants.dart';
 import 'package:reporting_app/main.dart';
-import 'package:reporting_app/screens/main/components/side_menu.dart';
+import 'package:reporting_app/util/side_menu.dart';
 import 'package:stringr/stringr.dart';
 
 class MobileScanBarcodePage extends StatefulWidget {
@@ -80,21 +80,20 @@ class _MobileScanBarcodePageState extends State<MobileScanBarcodePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: bgColor,
       appBar: AppBar(
         title: Text(
-          'Search Barcode',
+          'Scan Barcode',
           style: TextStyle(
             color: Colors.white,
           ),
         ),
-        backgroundColor: bgColor,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+        backgroundColor: Color(0xFF655B87),
+        iconTheme: IconThemeData(
+          color: Colors.white,
         ),
       ),
+      drawer: SideMenu(),
       body: Column(
         children: [
           Column(

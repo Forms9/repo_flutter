@@ -11,7 +11,7 @@ import 'package:intl/intl.dart';
 import 'package:reporting_app/constants.dart';
 import 'package:reporting_app/main.dart';
 import 'package:reporting_app/objectbox.g.dart';
-import 'package:reporting_app/screens/main/components/side_menu.dart';
+import 'package:reporting_app/util/side_menu.dart';
 import 'package:tabbed_view/tabbed_view.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -161,10 +161,20 @@ class _MobileGenerateBillPageState extends State<MobileGenerateBillPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: TabWidgetKey.tabwidgetkey,
-      backgroundColor: defaultBackgroundColor,
-      appBar: handheldAppBar,
-      drawer: const SideMenu(),
+      backgroundColor: bgColor,
+      appBar: AppBar(
+        title: Text(
+          'Generate Bills',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Color(0xFF655B87),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+      ),
+      drawer: SideMenu(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
