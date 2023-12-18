@@ -33,6 +33,7 @@ var defaultBgAccentColor = const Color.fromARGB(97, 27, 198, 192);
 
 var defaultBackgroundColor = Colors.white;
 
+// ignore: prefer_const_constructors
 var defaultTextColor = Color.fromARGB(255, 248, 249, 249);
 
 var drawerTextColor = TextStyle(
@@ -55,29 +56,29 @@ List<Color> pieChartColorPalette = const [
 ];
 
 // Application Components - Variables
-var windowsAppBar = PreferredSize(
-  preferredSize: const Size.fromHeight(36.0),
-  child: AppBar(
-    backgroundColor: appBarColor,
-    title: Column(
-      children: [
-        WindowTitleBarBox(
-          child: Row(
-            children: [
-              Expanded(
-                child: MoveWindow(),
-              ),
-              MinimizeWindowButton(colors: buttonColors),
-              MaximizeWindowButton(colors: buttonColors),
-              CloseWindowButton(colors: buttonColors2),
-            ],
-          ),
-        ),
-      ],
-    ),
-    centerTitle: false,
-  ),
-);
+// var windowsAppBar = PreferredSize(
+//   preferredSize: const Size.fromHeight(36.0),
+//   child: AppBar(
+//     backgroundColor: appBarColor,
+//     title: Column(
+//       children: [
+//         WindowTitleBarBox(
+//           child: Row(
+//             children: [
+//               Expanded(
+//                 child: MoveWindow(),
+//               ),
+//               MinimizeWindowButton(colors: buttonColors),
+//               MaximizeWindowButton(colors: buttonColors),
+//               CloseWindowButton(colors: buttonColors2),
+//             ],
+//           ),
+//         ),
+//       ],
+//     ),
+//     centerTitle: false,
+//   ),
+// );
 
 var handheldAppBar = PreferredSize(
   preferredSize: const Size.fromHeight(36.0),

@@ -1,3 +1,4 @@
+// ignore: unnecessary_import
 import 'package:objectbox/objectbox.dart';
 import 'package:reporting_app/main.dart';
 import 'package:intl/intl.dart';

@@ -53,6 +53,7 @@ createUser(BuildContext context, List<bool> selectedTypes) async {
             password: password.text,
             type: selectedTypes[0] ? "ADMIN" : "USER",
             store: cUser.store);
+        // ignore: unused_local_variable
         var id = store.box<User>().put(user);
         // ignore: use_build_context_synchronously
         customOKAlertDialog(context, 'User Created - Success',
@@ -88,6 +89,7 @@ delUser(String username) async {
 }
 
 class AddUser extends StatefulWidget {
+  // ignore: use_super_parameters
   const AddUser({Key? key}) : super(key: key);
 
   @override
@@ -100,6 +102,7 @@ class _AddUserState extends State<AddUser> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
+      // ignore: prefer_const_constructors
       home: DesktopLoginPage(),
     );
   }

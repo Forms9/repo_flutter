@@ -1,18 +1,43 @@
 import 'package:flutter/material.dart';
-import '../../../constants.dart';
-import 'chart.dart';
-import 'storage_info_card.dart';
+import 'package:reporting_app/constants.dart';
+import 'package:reporting_app/screens/dashboard/components/chart.dart';
+import 'package:reporting_app/screens/dashboard/components/storage_info_card.dart';
+import 'package:reporting_app/util/side_menu.dart';
 
-class StorageDetails extends StatefulWidget {
-  const StorageDetails({
+class TabletAnalysisPage extends StatelessWidget {
+  const TabletAnalysisPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: bgColor,
+      appBar: AppBar(
+        title: Text(
+          'Analysis',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Color(0xFF655B87),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+      ),
+      drawer: SideMenu(),
+    );
+  }
+}
+
+class TabletAnalysisPage1 extends StatefulWidget {
+  const TabletAnalysisPage1({
     Key? key,
   }) : super(key: key);
 
   @override
-  _StorageDetailsState createState() => _StorageDetailsState();
+  _TabletAnalysisPage1State createState() => _TabletAnalysisPage1State();
 }
 
-class _StorageDetailsState extends State<StorageDetails> {
+class _TabletAnalysisPage1State extends State<TabletAnalysisPage1> {
   String selectedDuration = "Today"; // Default selected value
 
   @override
@@ -32,9 +57,9 @@ class _StorageDetailsState extends State<StorageDetails> {
               Text(
                 "Analysis",
                 style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
               DropdownButton<String>(
                 items: ["Today", "7 days", "30 days", "1 Year"]
@@ -61,6 +86,7 @@ class _StorageDetailsState extends State<StorageDetails> {
             amountOfFiles: "1.3GB",
             numOfFiles: 1328,
           ),
+          // Add other StorageInfoCard instances with updated titles based on selectedDuration
         ],
       ),
     );

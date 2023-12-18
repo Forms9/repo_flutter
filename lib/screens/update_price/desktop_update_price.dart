@@ -54,11 +54,14 @@ class _DesktopUpdatePriceState extends State<DesktopUpdatePrice> {
         ),
       ),
       drawer: SideMenu(),
+
       body: Center(
         child: Container(
           margin: const EdgeInsets.only(left: 300),
           child: Row(
             children: [
+              // Drawer content
+              // const SideMenu(),
               SingleChildScrollView(
                 child: Column(
                   children: [

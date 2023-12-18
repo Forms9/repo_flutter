@@ -116,7 +116,7 @@ class _DesktopRecentBillsPageState extends State<DesktopRecentBillsPage> {
                           child: TextField(
                             controller: saleNumber,
                             style: GoogleFonts.poppins(
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
                             decoration: InputDecoration(
                               prefixIcon: const Icon(
@@ -157,7 +157,7 @@ class _DesktopRecentBillsPageState extends State<DesktopRecentBillsPage> {
                           child: TextField(
                             controller: productNumber,
                             style: GoogleFonts.poppins(
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
                             decoration: InputDecoration(
                               prefixIcon: const Icon(

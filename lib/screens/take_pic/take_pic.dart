@@ -1,84 +1,96 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:reporting_app/constants.dart';
+import 'package:camera/camera.dart';
 
 class TakePicPage extends StatefulWidget {
-  const TakePicPage({super.key});
-
   @override
-  State<TakePicPage> createState() => _TakePicPageState();
+  _TakePicPageState createState() => _TakePicPageState();
 }
 
 class _TakePicPageState extends State<TakePicPage> {
-  List<dynamic> users = [];
+  late CameraController _controller;
+  late Future<void> _initializeControllerFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeControllerFuture = _initializeCamera();
+  }
+
+  Future<void> _initializeCamera() async {
+    final cameras = await availableCameras();
+    final firstCamera = cameras.first;
+
+    _controller = CameraController(
+      firstCamera,
+      ResolutionPreset.medium,
+    );
+
+    return _controller.initialize();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  Future<void> _takePicture() async {
+    try {
+      await _initializeControllerFuture;
+
+      final image = await _controller.takePicture();
+
+      await saveImageToFile(File(image.path));
+    } catch (e) {
+      print('Error taking picture: $e');
+    }
+  }
+
+  Future<void> saveImageToFile(File image) async {
+    try {
+      // final directory = await getApplicationDocumentsDirectory();
+      final targetDirectory = Directory('/assets/click_images');
+
+      if (!await targetDirectory.exists()) {
+        await targetDirectory.create(recursive: true);
+      }
+
+      final filePath = '${targetDirectory.path}/image.png';
+
+      await image.copy(filePath);
+
+      print('Image saved to: $filePath');
+    } catch (e) {
+      print('Error saving image: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Take Pic',
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-          backgroundColor: bgColor,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.white),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: TextField(
-                  style: TextStyle(
-                    color: Colors.white, // Set text color to white
-                  ),
-                  decoration: InputDecoration(
-                    hintText: 'pic',
-                    hintStyle: TextStyle(
-                      color: Colors.white,
-                    ), // Set hint text color to white
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.white,
-                      ), // Set border color to white
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.white,
-                      ), // Set focused border color to white
-                    ),
-                  ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Take Picture'),
+      ),
+      body: FutureBuilder(
+        future: _initializeControllerFuture,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return Column(
+              children: [
+                Expanded(
+                  child: CameraPreview(_controller),
                 ),
-              ),
-              SizedBox(width: 8),
-              Padding(
-                padding: EdgeInsets.all(16.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Handle button press
-                    print('Search!');
-                  },
-                  child: Row(
-                    children: [
-                      Icon(Icons.search, color: Color.fromARGB(255, 12, 4, 15)),
-                      Text('Search', style: TextStyle(fontSize: 18.0)),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        backgroundColor: bgColor,
+              ],
+            );
+          } else {
+            return Center(child: CircularProgressIndicator());
+          }
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _takePicture,
+        child: Icon(Icons.camera),
       ),
     );
   }

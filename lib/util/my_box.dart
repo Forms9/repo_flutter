@@ -1,3 +1,4 @@
+// ignore: unused_import
 import 'dart:io';
 import 'dart:math';
 import 'dart:developer' as dev;
@@ -9,14 +10,18 @@ import 'package:reporting_app/database.dart';
 import 'package:reporting_app/main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+// ignore: unnecessary_import
 import 'package:objectbox/objectbox.dart';
 import 'package:reporting_app/objectbox.g.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+// ignore: depend_on_referenced_packages
 import 'package:pdf/pdf.dart';
+// ignore: depend_on_referenced_packages
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 
 class MyBox extends StatelessWidget {
+  // ignore: use_super_parameters
   const MyBox({
     Key? key,
     required this.text,
@@ -122,6 +127,7 @@ class MyBox extends StatelessWidget {
 
 // Store Box
 class StoreBox extends StatelessWidget {
+  // ignore: use_super_parameters
   const StoreBox({
     Key? key,
     required this.text,
@@ -176,6 +182,7 @@ class StoreBox extends StatelessWidget {
                     child: Center(
                       child: Text(
                         text.substring(0, 1).toUpperCase(),
+                        // ignore: prefer_const_constructors
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 32,
@@ -195,6 +202,7 @@ class StoreBox extends StatelessWidget {
                     child: Text(
                       text,
                       style:
+                          // ignore: prefer_const_constructors
                           TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
                     ),
                   ),
@@ -218,6 +226,7 @@ late List<DailySalesData> _dailySalesChartData;
 late TooltipBehavior _dailySalesTooltipBehavior;
 
 class DailySaleBox extends StatefulWidget {
+  // ignore: use_super_parameters
   const DailySaleBox({
     Key? key,
   }) : super(key: key);
@@ -243,6 +252,7 @@ class _DailySaleBoxState extends State<DailySaleBox> {
     List<DailySaleData> todaysSale = query.find().reversed.toList();
 
     DateTime now = DateTime.now();
+    // ignore: unused_local_variable
     DateTime date = DateTime(now.year, now.month, now.day);
 
     if (todaysSale.isEmpty) {
@@ -341,6 +351,7 @@ class _DailySaleBoxState extends State<DailySaleBox> {
           ),
           pw.Padding(
             padding: const pw.EdgeInsets.all(20),
+            // ignore: deprecated_member_use
             child: pw.Table.fromTextArray(
               border: null,
               cellAlignment: pw.Alignment.center,
@@ -948,6 +959,7 @@ class _DailySaleBoxState extends State<DailySaleBox> {
                                   saleCash: 0,
                                   salePoints: 0,
                                   saleCreatedDate: date);
+                              // ignore: unused_local_variable
                               var id =
                                   store.box<DailySaleData>().put(dailySale);
 
@@ -1022,6 +1034,7 @@ class _DailySaleTabletBoxState extends State<DailySaleTabletBox> {
     List<DailySaleData> todaysSale = query.find().reversed.toList();
 
     DateTime now = DateTime.now();
+    // ignore: unused_local_variable
     DateTime date = DateTime(now.year, now.month, now.day);
 
     if (todaysSale.isEmpty) {
@@ -1120,6 +1133,7 @@ class _DailySaleTabletBoxState extends State<DailySaleTabletBox> {
           ),
           pw.Padding(
             padding: const pw.EdgeInsets.all(20),
+            // ignore: deprecated_member_use
             child: pw.Table.fromTextArray(
               border: null,
               cellAlignment: pw.Alignment.center,
@@ -1721,6 +1735,7 @@ class _DailySaleTabletBoxState extends State<DailySaleTabletBox> {
                                   saleCash: 0,
                                   salePoints: 0,
                                   saleCreatedDate: date);
+                              // ignore: unused_local_variable
                               var id =
                                   store.box<DailySaleData>().put(dailySale);
 

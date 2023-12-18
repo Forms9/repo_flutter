@@ -1,3 +1,4 @@
+// ignore: unused_import
 import 'dart:developer';
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:reporting_app/constants.dart';
@@ -10,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class TabletLoginPage extends StatefulWidget {
+  // ignore: use_super_parameters
   const TabletLoginPage({Key? key}) : super(key: key);
 
   @override
@@ -30,6 +32,7 @@ Color getColor(Set<MaterialState> states) {
 
 class _TabletLoginPageState extends State<TabletLoginPage> {
   // Dynamically show the password to the user
+  // ignore: unused_field, prefer_final_fields
   bool _isObscure = true;
 
   @override
@@ -133,6 +136,7 @@ class _TabletLoginPageState extends State<TabletLoginPage> {
                                 //     const Duration(seconds: 1));
                                 setState(() {});
                               },
+                              // ignore: prefer_const_constructors
                               primaryColor: Color.fromARGB(255, 94, 202, 238),
                               secondaryColor:
                                   const Color.fromARGB(255, 94, 202, 238),
@@ -145,11 +149,12 @@ class _TabletLoginPageState extends State<TabletLoginPage> {
                                 getUsers('CELE').then((_) {
                                   setState(() {});
                                 });
-                                ;
+
                                 // await Future.delayed(
                                 //     const Duration(seconds: 1));
                                 setState(() {});
                               },
+                              // ignore: prefer_const_constructors
                               primaryColor: Color.fromARGB(255, 94, 223, 238),
                               secondaryColor:
                                   const Color.fromARGB(255, 94, 223, 238),
@@ -162,7 +167,7 @@ class _TabletLoginPageState extends State<TabletLoginPage> {
                                 getUsers('FEST').then((_) {
                                   setState(() {});
                                 });
-                                ;
+
                                 // await Future.delayed(
                                 //     const Duration(seconds: 1));
                                 setState(() {});
@@ -180,7 +185,7 @@ class _TabletLoginPageState extends State<TabletLoginPage> {
                                 getUsers('HERI').then((_) {
                                   setState(() {});
                                 });
-                                ;
+
                                 // await Future.delayed(
                                 //     const Duration(seconds: 1));
                                 setState(() {});

@@ -4,13 +4,17 @@ import 'package:http/http.dart' as http;
 import 'package:reporting_app/constants.dart';
 import 'package:reporting_app/util/side_menu.dart';
 
+// ignore: use_key_in_widget_constructors
 class SearchSupplier extends StatefulWidget {
   @override
+  // ignore: library_private_types_in_public_api
   _SearchSupplierState createState() => _SearchSupplierState();
 }
 
 class _SearchSupplierState extends State<SearchSupplier> {
+  // ignore: prefer_final_fields
   TextEditingController _searchController = TextEditingController();
+  // ignore: unused_field
   List<Map<String, dynamic>> _allResults = [];
   List<Map<String, dynamic>> _searchResults = [];
 
@@ -36,7 +40,9 @@ class _SearchSupplierState extends State<SearchSupplier> {
         }
       });
     } else {
+      // ignore: avoid_print
       print('Error Response: ${response.body}');
+      // ignore: avoid_print
       print('Status Code: ${response.statusCode}');
       throw Exception('Failed to load data');
     }
@@ -47,17 +53,22 @@ class _SearchSupplierState extends State<SearchSupplier> {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
+        // ignore: prefer_const_constructors
         title: Text(
           'Search Supplier',
+          // ignore: prefer_const_constructors
           style: TextStyle(
             color: Colors.white,
           ),
         ),
+        // ignore: prefer_const_constructors
         backgroundColor: Color(0xFF655B87),
+        // ignore: prefer_const_constructors
         iconTheme: IconThemeData(
           color: Colors.white,
         ),
       ),
+      // ignore: prefer_const_constructors
       drawer: SideMenu(),
       body: SingleChildScrollView(
         padding: const EdgeInsets.only(left: 80, right: 80, top: 20),
@@ -81,6 +92,7 @@ class _SearchSupplierState extends State<SearchSupplier> {
                       labelText: 'Search',
                       border: InputBorder.none,
                       suffixIcon: IconButton(
+                        // ignore: prefer_const_constructors
                         icon: Icon(Icons.search),
                         onPressed: () {
                           String query = _searchController.text;
@@ -92,19 +104,29 @@ class _SearchSupplierState extends State<SearchSupplier> {
                 ),
               ),
             ),
+            // ignore: prefer_const_constructors
             SizedBox(height: 50),
+            // ignore: sized_box_for_whitespace
             Container(
               height: MediaQuery.of(context).size.height - 200,
               child: _searchResults.isEmpty
+                  // ignore: prefer_const_constructors
                   ? Center(
+                      // ignore: prefer_const_constructors
                       child: Text('No results found'),
                     )
                   : DataTable(
+                      // ignore: prefer_const_literals_to_create_immutables
                       columns: [
+                        // ignore: prefer_const_constructors
                         DataColumn(label: Text('Sr. No')),
+                        // ignore: prefer_const_constructors
                         DataColumn(label: Text('Name')),
+                        // ignore: prefer_const_constructors
                         DataColumn(label: Text('Supplier Code')),
+                        // ignore: prefer_const_constructors
                         DataColumn(label: Text('Contact No.')),
+                        // ignore: prefer_const_constructors
                         DataColumn(label: Text('City')),
                       ],
                       rows: _searchResults

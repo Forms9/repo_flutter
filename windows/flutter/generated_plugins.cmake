@@ -4,6 +4,7 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   bitsdojo_window_windows
+  camera_windows
   dynamic_color
   objectbox_flutter_libs
   platform_device_id_windows

@@ -8,6 +8,7 @@ import 'package:reporting_app/screens/Login/loginpage.dart';
 import 'package:reporting_app/util/my_box.dart';
 
 class MobileLoginPage extends StatefulWidget {
+  // ignore: use_super_parameters
   const MobileLoginPage({Key? key}) : super(key: key);
 
   @override
@@ -16,6 +17,7 @@ class MobileLoginPage extends StatefulWidget {
 
 class _MobileLoginPageState extends State<MobileLoginPage> {
   // Dynamically show the password to the user
+  // ignore: unused_field, prefer_final_fields
   bool _isObscure = true;
 
   @override
@@ -64,6 +66,7 @@ class _MobileLoginPageState extends State<MobileLoginPage> {
                     Text(
                       displayDeviceId,
                       style:
+                          // ignore: prefer_const_constructors
                           TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
                     ),
 
@@ -90,6 +93,7 @@ class _MobileLoginPageState extends State<MobileLoginPage> {
                                 //     const Duration(seconds: 1));
                                 setState(() {});
                               },
+                              // ignore: prefer_const_constructors
                               primaryColor: Color.fromARGB(255, 94, 202, 238),
                               secondaryColor:
                                   const Color.fromARGB(255, 94, 202, 238),
@@ -102,11 +106,12 @@ class _MobileLoginPageState extends State<MobileLoginPage> {
                                 getUsers('CELE').then((_) {
                                   setState(() {});
                                 });
-                                ;
+
                                 // await Future.delayed(
                                 //     const Duration(seconds: 1));
                                 setState(() {});
                               },
+                              // ignore: prefer_const_constructors
                               primaryColor: Color.fromARGB(255, 94, 223, 238),
                               secondaryColor:
                                   const Color.fromARGB(255, 94, 223, 238),
@@ -119,7 +124,7 @@ class _MobileLoginPageState extends State<MobileLoginPage> {
                                 getUsers('FEST').then((_) {
                                   setState(() {});
                                 });
-                                ;
+
                                 // await Future.delayed(
                                 //     const Duration(seconds: 1));
                                 setState(() {});
@@ -137,7 +142,7 @@ class _MobileLoginPageState extends State<MobileLoginPage> {
                                 getUsers('HERI').then((_) {
                                   setState(() {});
                                 });
-                                ;
+
                                 // await Future.delayed(
                                 //     const Duration(seconds: 1));
                                 setState(() {});

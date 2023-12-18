@@ -1,7 +1,9 @@
+// ignore: unused_import
 import 'dart:developer';
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:reporting_app/constants.dart';
 import 'package:reporting_app/screens/Login/loginpage.dart';
+// ignore: unused_import
 import 'package:reporting_app/util/side_menu.dart';
 import 'package:reporting_app/util/my_box.dart';
 import '../../../main.dart';
@@ -11,6 +13,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DesktopLoginPage extends StatefulWidget {
+  // ignore: use_super_parameters
   const DesktopLoginPage({Key? key}) : super(key: key);
 
   @override
@@ -31,6 +34,7 @@ Color getColor(Set<MaterialState> states) {
 
 class _DesktopLoginPageState extends State<DesktopLoginPage> {
   // Dynamically show the password to the user
+  // ignore: unused_field, prefer_final_fields
   bool _isObscure = true;
 
   @override
@@ -66,6 +70,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
             child: Stack(
               children: [
                 Container(
+                  // ignore: prefer_const_constructors
                   decoration: BoxDecoration(
                     color: bgColor, // image: const DecorationImage(
                     //   image: AssetImage('assets/images/logo.png'),
@@ -132,6 +137,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                                 //     const Duration(seconds: 1));
                                 setState(() {});
                               },
+                              // ignore: prefer_const_constructors
                               primaryColor: Color.fromARGB(255, 52, 124, 148),
                               secondaryColor:
                                   const Color.fromARGB(255, 94, 202, 238),
@@ -143,11 +149,12 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                                 getUsers('CELE').then((_) {
                                   setState(() {});
                                 });
-                                ;
+
                                 // await Future.delayed(
                                 //     const Duration(seconds: 1));
                                 setState(() {});
                               },
+                              // ignore: prefer_const_constructors
                               primaryColor: Color.fromARGB(255, 51, 140, 150),
                               secondaryColor:
                                   const Color.fromARGB(255, 94, 223, 238),
@@ -164,6 +171,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                                 //     const Duration(seconds: 1));
                                 setState(() {});
                               },
+                              // ignore: prefer_const_constructors
                               primaryColor: Color.fromARGB(255, 26, 187, 171),
                               secondaryColor:
                                   const Color.fromARGB(255, 94, 223, 238),
@@ -180,6 +188,7 @@ class _DesktopLoginPageState extends State<DesktopLoginPage> {
                                 //     const Duration(seconds: 1));
                                 setState(() {});
                               },
+                              // ignore: prefer_const_constructors
                               primaryColor: Color.fromARGB(255, 42, 145, 134),
                               secondaryColor:
                                   const Color.fromARGB(255, 94, 223, 238),

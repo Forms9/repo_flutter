@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 // import 'dart:io';
 import 'package:http/http.dart' as http;
+// ignore: unnecessary_import
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ai_barcode_scanner/ai_barcode_scanner.dart';
@@ -15,6 +16,7 @@ import 'package:reporting_app/util/side_menu.dart';
 import 'package:stringr/stringr.dart';
 
 class TabletScanBarcodePage extends StatefulWidget {
+  // ignore: use_super_parameters
   const TabletScanBarcodePage({Key? key}) : super(key: key);
 
   @override
@@ -83,17 +85,22 @@ class _TabletScanBarcodePageState extends State<TabletScanBarcodePage> {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
+        // ignore: prefer_const_constructors
         title: Text(
           'Scan Barcode',
+          // ignore: prefer_const_constructors
           style: TextStyle(
             color: Colors.white,
           ),
         ),
+        // ignore: prefer_const_constructors
         backgroundColor: Color(0xFF655B87),
+        // ignore: prefer_const_constructors
         iconTheme: IconThemeData(
           color: Colors.white,
         ),
       ),
+      // ignore: prefer_const_constructors
       drawer: SideMenu(),
       body: Column(
         children: [
@@ -200,6 +207,7 @@ class _TabletScanBarcodePageState extends State<TabletScanBarcodePage> {
                               left: 5,
                               right: 5,
                             ),
+                            // ignore: deprecated_member_use
                             primary: defaultAccentColor),
                         onPressed: () => {getDataByBarcode()},
                         child: const FaIcon(

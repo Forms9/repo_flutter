@@ -77,7 +77,7 @@ class _TabletRecentBillPagesPageState extends State<TabletRecentBillPage> {
       backgroundColor: bgColor,
       appBar: AppBar(
         title: Text(
-          'Analysis',
+          'Update Price',
           style: TextStyle(
             color: Colors.white,
           ),
@@ -87,166 +87,169 @@ class _TabletRecentBillPagesPageState extends State<TabletRecentBillPage> {
           color: Colors.white,
         ),
       ),
-      drawer: SideMenu(),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: settingsCategoryPadding,
-                    child: Text(
-                      'Recent Bills',
-                      style: GoogleFonts.poppins(
-                        fontSize: 32,
-                        fontWeight: FontWeight.w700,
-                        color: defaultTextColor,
+      // drawer: SideMenu(),
+      body: Center(
+        child: Container(
+          margin: const EdgeInsets.only(left: 300),
+          child: Row(
+            children: [
+              // Drawer content
+              const SideMenu(),
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                      child: Text(
+                        "Update Price",
+                        style: GoogleFonts.poppins(
+                          fontSize: 32,
+                          fontWeight: FontWeight.w700,
+                          color: defaultTextColor,
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 5,
-                          child: TextField(
-                            controller: saleNumber,
-                            style: GoogleFonts.poppins(
-                              color: Colors.black,
-                            ),
-                            decoration: InputDecoration(
-                              prefixIcon: const Icon(
-                                FontAwesomeIcons.magnifyingGlass,
-                                size: 15,
-                                color: Colors.grey,
+                    Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 5,
+                            child: TextField(
+                              controller: saleNumber,
+                              style: GoogleFonts.poppins(
+                                color: Colors.black,
                               ),
-                              hintText: 'Enter Bill Number',
-                              hintStyle: GoogleFonts.poppins(
-                                color: Colors.grey,
-                              ),
-                              filled: true,
-                              contentPadding:
-                                  const EdgeInsets.symmetric(horizontal: 16),
-                              fillColor: Colors.white24,
-                              border: OutlineInputBorder(
-                                borderSide:
-                                    const BorderSide(color: Colors.grey),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide:
-                                    const BorderSide(color: Colors.grey),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                    const BorderSide(color: Colors.grey),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                            onSubmitted: (value) => {query()},
-                          ),
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          flex: 5,
-                          child: TextField(
-                            controller: productNumber,
-                            style: GoogleFonts.poppins(
-                              color: Colors.black,
-                            ),
-                            decoration: InputDecoration(
-                              prefixIcon: const Icon(
-                                FontAwesomeIcons.magnifyingGlass,
-                                size: 15,
-                                color: Colors.grey,
-                              ),
-                              hintText: 'Enter Product Number',
-                              hintStyle: GoogleFonts.poppins(
-                                color: Colors.grey,
-                              ),
-                              filled: true,
-                              contentPadding:
-                                  const EdgeInsets.symmetric(horizontal: 16),
-                              fillColor: Colors.white24,
-                              border: OutlineInputBorder(
-                                borderSide:
-                                    const BorderSide(color: Colors.grey),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide:
-                                    const BorderSide(color: Colors.grey),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                    const BorderSide(color: Colors.grey),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                            onSubmitted: (value) => {query()},
-                          ),
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
+                              decoration: InputDecoration(
+                                prefixIcon: const Icon(
+                                  FontAwesomeIcons.magnifyingGlass,
+                                  size: 15,
+                                  color: Colors.grey,
+                                ),
+                                hintText: 'Enter Bill Number',
+                                hintStyle: GoogleFonts.poppins(
+                                  color: Colors.grey,
+                                ),
+                                filled: true,
+                                contentPadding:
+                                    const EdgeInsets.symmetric(horizontal: 16),
+                                fillColor: Colors.white24,
+                                border: OutlineInputBorder(
+                                  borderSide:
+                                      const BorderSide(color: Colors.grey),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
-                                padding: const EdgeInsets.all(12),
-                                primary: defaultAccentColor),
-                            onPressed: () => {query()},
-                            child: const FaIcon(
-                              FontAwesomeIcons.magnifyingGlass,
-                              size: 25,
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide:
+                                      const BorderSide(color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                      const BorderSide(color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              onSubmitted: (value) => {query()},
                             ),
                           ),
-                        ),
-                      ],
+                          const SizedBox(width: 16),
+                          Expanded(
+                            flex: 5,
+                            child: TextField(
+                              controller: productNumber,
+                              style: GoogleFonts.poppins(
+                                color: Colors.black,
+                              ),
+                              decoration: InputDecoration(
+                                prefixIcon: const Icon(
+                                  FontAwesomeIcons.magnifyingGlass,
+                                  size: 15,
+                                  color: Colors.grey,
+                                ),
+                                hintText: 'Enter Product Number',
+                                hintStyle: GoogleFonts.poppins(
+                                  color: Colors.grey,
+                                ),
+                                filled: true,
+                                contentPadding:
+                                    const EdgeInsets.symmetric(horizontal: 16),
+                                fillColor: Colors.white24,
+                                border: OutlineInputBorder(
+                                  borderSide:
+                                      const BorderSide(color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide:
+                                      const BorderSide(color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                      const BorderSide(color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              onSubmitted: (value) => {query()},
+                            ),
+                          ),
+                          const SizedBox(width: 16),
+                          Expanded(
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  padding: const EdgeInsets.all(12),
+                                  primary: defaultAccentColor),
+                              onPressed: () => {query()},
+                              child: const FaIcon(
+                                FontAwesomeIcons.magnifyingGlass,
+                                size: 25,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    child: ListView.builder(
-                      controller: ScrollController(),
-                      itemCount: recentSales.length,
-                      itemBuilder: (context, index) {
-                        return RecentBillsTabletDashboardTile(
-                          title: recentSales[index].saleNumber,
-                          // subtitle: recentSales[index]
-                          //     .data
-                          //     .join("\n")
-                          //     .replaceAll(",", "        "),
-                          subtitle:
-                              formatBill(recentSales[index].data.join("---")),
-                          billdate:
-                              "${DateFormat("dd/MM/yy").format(recentSales[index].saleCreatedDate)}    ${recentSales[index].saleCreatedDate.hour}:${recentSales[index].saleCreatedDate.minute}",
-                          billtotal: double.parse(
-                                      recentSales[index].saleTotal) <
-                                  0
-                              ? "-£${(double.parse(recentSales[index].saleTotal) * -1).toStringAsFixed(2)}"
-                              : "£${double.parse(recentSales[index].saleTotal).toStringAsFixed(2)}",
-                          billdistotal: (double.parse(
-                                          recentSales[index].saleTotal) -
-                                      double.parse(
-                                          recentSales[index].saleDiscount)) >=
-                                  0
-                              ? "£${(double.parse(recentSales[index].saleTotal) - double.parse(recentSales[index].saleDiscount)).toStringAsFixed(2)}"
-                              : "-£${((double.parse(recentSales[index].saleTotal) - double.parse(recentSales[index].saleDiscount)) * -1).toStringAsFixed(2)}",
-                          press: () {},
-                        );
-                      },
+                    Expanded(
+                      child: ListView.builder(
+                        controller: ScrollController(),
+                        itemCount: recentSales.length,
+                        itemBuilder: (context, index) {
+                          return RecentBillsTabletDashboardTile(
+                            title: recentSales[index].saleNumber,
+                            // subtitle: recentSales[index]
+                            //     .data
+                            //     .join("\n")
+                            //     .replaceAll(",", "        "),
+                            subtitle:
+                                formatBill(recentSales[index].data.join("---")),
+                            billdate:
+                                "${DateFormat("dd/MM/yy").format(recentSales[index].saleCreatedDate)}    ${recentSales[index].saleCreatedDate.hour}:${recentSales[index].saleCreatedDate.minute}",
+                            billtotal: double.parse(
+                                        recentSales[index].saleTotal) <
+                                    0
+                                ? "-£${(double.parse(recentSales[index].saleTotal) * -1).toStringAsFixed(2)}"
+                                : "£${double.parse(recentSales[index].saleTotal).toStringAsFixed(2)}",
+                            billdistotal: (double.parse(
+                                            recentSales[index].saleTotal) -
+                                        double.parse(
+                                            recentSales[index].saleDiscount)) >=
+                                    0
+                                ? "£${(double.parse(recentSales[index].saleTotal) - double.parse(recentSales[index].saleDiscount)).toStringAsFixed(2)}"
+                                : "-£${((double.parse(recentSales[index].saleTotal) - double.parse(recentSales[index].saleDiscount)) * -1).toStringAsFixed(2)}",
+                            press: () {},
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

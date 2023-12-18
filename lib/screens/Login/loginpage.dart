@@ -9,7 +9,7 @@ import 'package:reporting_app/controllers/MenuAppController.dart';
 import 'package:reporting_app/database.dart';
 import 'package:reporting_app/main.dart';
 import 'package:reporting_app/objectbox.g.dart';
-import 'package:reporting_app/util/main_screen.dart';
+import 'package:reporting_app/screens/dashboard/dashboard_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:developer';
 
@@ -52,7 +52,7 @@ loginfunction(BuildContext context) async {
               ),
               // Add other providers if needed
             ],
-            child: MainScreen(),
+            child: DashboardScreen(),
           ),
         ),
       );
@@ -131,6 +131,7 @@ Future<void> getUsers(String storename) async {
               password: user['password'],
               type: user['user_type'],
               store: user['store'].toString());
+          // ignore: unused_local_variable
           var id = store.box<User>().put(newUser);
           log("Added ${user['username']}");
           userlist.add(newUser);
@@ -186,7 +187,6 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(),
       home: MultiProvider(
         providers: [
           ChangeNotifierProvider(
@@ -194,7 +194,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           // Add other providers if needed
         ],
-        child: MainScreen(),
+        child: DashboardScreen(),
       ),
     );
   }

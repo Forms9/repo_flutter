@@ -5,6 +5,7 @@ import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_udid/flutter_udid.dart';
+import 'package:gallery_saver/gallery_saver.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:objectbox/objectbox.dart';
 // import 'package:platform_device_id/platform_device_id.dart';
@@ -59,6 +60,7 @@ initPlatformState() async {
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   objectBox = await ObjectBox.create();
   store = objectBox.store;
   //initPlatformState();
@@ -87,6 +89,7 @@ Future<void> main() async {
   Timer.periodic(
     const Duration(minutes: 15),
     (timer) {
+      // ignore: avoid_print
       print('Timer triggered at ${DateTime.now()}');
       try {
         // getProductData();
@@ -105,6 +108,7 @@ bool myInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
 }
 
 class MyApp extends StatefulWidget {
+  // ignore: use_super_parameters
   const MyApp({Key? key}) : super(key: key);
 
   @override
@@ -137,6 +141,7 @@ class _MyAppState extends State<MyApp> with WindowListener {
             .apply(bodyColor: Colors.white),
         canvasColor: secondaryColor,
       ),
+      // ignore: prefer_const_constructors
       home: DesktopLoginPage(),
     );
   }

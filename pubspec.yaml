@@ -65,6 +65,9 @@ dependencies:
   elegant_notification: ^1.6.4
   shared_preferences: ^2.0.17
   adaptive_dialog: ^2.0.0
+  camera: ^0.10.5+7
+  camera_windows: ^0.2.1+8
+  gallery_saver: ^2.3.2
 
 dev_dependencies:
   flutter_test:
@@ -92,6 +95,8 @@ flutter:
   assets:
   - assets/images/
   - assets/icons/
+  - assets/logo1.png
+  
   
 # An image asset can refer to one or more resolution-specific "variants", see 
   # https://flutter.dev/assets-and-images/#resolution-aware

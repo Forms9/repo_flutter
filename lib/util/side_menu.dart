@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:reporting_app/constants.dart';
-import 'package:reporting_app/screens/recent_bills/recent_bill.dart';
 import 'package:reporting_app/screens/dashboard/dashboard_screen.dart';
+import 'package:reporting_app/screens/recent_bills/recent_bill.dart';
 import 'package:reporting_app/screens/generate_bill/generate_bill.dart';
 import 'package:reporting_app/screens/search_barcode/desktop_scan_barcode.dart';
 import 'package:reporting_app/screens/search_supplier/search_supplier.dart';
+import 'package:reporting_app/screens/setting/setting.dart';
 import 'package:reporting_app/screens/take_pic/take_pic.dart';
 import 'package:reporting_app/screens/update_price/update_price.dart';
 
 class SideMenu extends StatelessWidget {
+  // ignore: use_super_parameters
   const SideMenu({
     Key? key,
   }) : super(key: key);
@@ -23,6 +25,19 @@ class SideMenu extends StatelessWidget {
           DrawerHeader(
             child: Image.asset("assets/images/logo.png"),
           ),
+          Builder(
+            builder: (context) => DrawerListTile(
+              title: "Take Pic",
+              svgSrc: "assets/icons/menu_dashboard.svg",
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TakePicPage()),
+                );
+              },
+            ),
+          ),
+
           DrawerListTile(
             title: "Dashboard",
             svgSrc: "assets/icons/menu_dashboard.svg",
@@ -40,6 +55,7 @@ class SideMenu extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
+                    // ignore: prefer_const_constructors
                     builder: (context) => DesktopScanBarcodePage()),
               );
             },
@@ -60,6 +76,7 @@ class SideMenu extends StatelessWidget {
             press: () {
               Navigator.push(
                 context,
+                // ignore: prefer_const_constructors
                 MaterialPageRoute(builder: (context) => UpdatePrice()),
               );
             },
@@ -70,50 +87,44 @@ class SideMenu extends StatelessWidget {
             press: () {
               Navigator.push(
                 context,
+                // ignore: prefer_const_constructors
                 MaterialPageRoute(builder: (context) => GenerateBill()),
               );
             },
           ),
+
           DrawerListTile(
-            title: "Take Pic",
+            title: "Recent Billsss",
             svgSrc: "assets/icons/menu_dashboard.svg",
             press: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => TakePicPage()),
-              );
-            },
-          ),
-          DrawerListTile(
-            title: "Recent Bills",
-            svgSrc: "assets/icons/menu_dashboard.svg",
-            press: () {
-              Navigator.push(
-                context,
+                // ignore: prefer_const_constructors
                 MaterialPageRoute(builder: (context) => RecentBill()),
               );
             },
           ),
           // DrawerListTile(
-          //   title: "Profile",
+          //   title: "Analysis",
           //   svgSrc: "assets/icons/menu_dashboard.svg",
           //   press: () {
           //     Navigator.push(
           //       context,
-          //       MaterialPageRoute(builder: (context) => WelcomeScreen()),
+          //       MaterialPageRoute(builder: (context) => Analysis()),
           //     );
           //   },
           // ),
-          // DrawerListTile(
-          //   title: "Settings",
-          //   svgSrc: "assets/icons/menu_dashboard.svg",
-          //   press: () {
-          //     Navigator.push(
-          //       context,
-          //       MaterialPageRoute(builder: (context) => DashboardScreen()),
-          //     );
-          //   },
-          // ),
+          DrawerListTile(
+            title: "Setting",
+            svgSrc: "assets/icons/menu_dashboard.svg",
+            press: () {
+              Navigator.push(
+                context,
+                // ignore: prefer_const_constructors
+                MaterialPageRoute(builder: (context) => Setting()),
+              );
+            },
+          ),
         ],
       ),
     );
@@ -121,6 +132,7 @@ class SideMenu extends StatelessWidget {
 }
 
 class DrawerListTile extends StatelessWidget {
+  // ignore: use_super_parameters
   const DrawerListTile({
     Key? key,
     // For selecting those three line once press "Command+D"
@@ -139,11 +151,13 @@ class DrawerListTile extends StatelessWidget {
       horizontalTitleGap: 0.0,
       leading: SvgPicture.asset(
         svgSrc,
+        // ignore: prefer_const_constructors
         colorFilter: ColorFilter.mode(Colors.white54, BlendMode.srcIn),
         height: 16,
       ),
       title: Text(
         title,
+        // ignore: prefer_const_constructors
         style: TextStyle(color: Colors.white54),
       ),
     );

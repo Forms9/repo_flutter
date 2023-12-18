@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+// ignore: unnecessary_import
 import 'package:objectbox/objectbox.dart';
 import 'package:reporting_app/constants.dart';
 import 'package:reporting_app/main.dart';
@@ -18,7 +19,9 @@ import 'package:reporting_app/objectbox.g.dart';
 import 'package:reporting_app/screens/generate_bill/generate_bill.dart';
 import 'package:reporting_app/util/side_menu.dart';
 import 'package:tabbed_view/tabbed_view.dart';
+// ignore: depend_on_referenced_packages
 import 'package:pdf/pdf.dart';
+// ignore: depend_on_referenced_packages
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 import '../../database.dart';
@@ -31,6 +34,7 @@ bool isNormal = true;
 
 // final pageKey = GlobalKey();
 class TabWidgetKey {
+  // ignore: prefer_const_declarations
   static final tabwidgetkey = const Key('__TABWIDGETKEY__');
 }
 
@@ -192,6 +196,7 @@ class PositiveRateValueFormatter extends TextInputFormatter {
 }
 
 class DesktopGenerateBillPage extends StatefulWidget {
+  // ignore: use_super_parameters
   const DesktopGenerateBillPage({Key? key}) : super(key: key);
 
   @override
@@ -213,17 +218,22 @@ class _DesktopGenerateBillPageState extends State<DesktopGenerateBillPage> {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
+        // ignore: prefer_const_constructors
         title: Text(
           'Generate Bills',
+          // ignore: prefer_const_constructors
           style: TextStyle(
             color: Colors.white,
           ),
         ),
+        // ignore: prefer_const_constructors
         backgroundColor: Color(0xFF655B87),
+        // ignore: prefer_const_constructors
         iconTheme: IconThemeData(
           color: Colors.white,
         ),
       ),
+      // ignore: prefer_const_constructors
       drawer: SideMenu(),
       body: const Padding(
         padding: EdgeInsets.all(8.0),
@@ -246,6 +256,7 @@ class _DesktopGenerateBillPageState extends State<DesktopGenerateBillPage> {
 var hasData = {};
 
 class TabBarView extends StatefulWidget {
+  // ignore: use_super_parameters
   const TabBarView({Key? key}) : super(key: key);
 
   @override
@@ -273,6 +284,7 @@ class _TabBarViewState extends State<TabBarView> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
     _tabCloseInterceptor(int tabIndex) {
       TabData currentTab = tabController.getTabByIndex(tabIndex);
       if (!hasData[currentTab.text]) {
@@ -368,6 +380,7 @@ class LimitRangeTextInputFormatter extends TextInputFormatter {
 }
 
 class BillPage extends StatefulWidget {
+  // ignore: use_super_parameters
   const BillPage({Key? key}) : super(key: key);
 
   @override
@@ -662,7 +675,6 @@ class _BillPageState extends State<BillPage> {
       }
 
       Box<ProductData> productbox = Box<ProductData>(store);
-      Map<String, BillItemModel> items = {};
 
       // for (BillItemModel item in data) {
       //   if (item.barcodeNo == "") {
@@ -757,6 +769,7 @@ class _BillPageState extends State<BillPage> {
       final SaleNumberData saleNumberData = SaleNumberData(
           saleNumber: saleNumber, saleCreatedDate: saleCreatedDate);
 
+      // ignore: unused_local_variable
       var saleNumberId = store.box<SaleNumberData>().put(saleNumberData);
 
       Box<DailySaleData> dailySaleBox = Box<DailySaleData>(store);
@@ -772,6 +785,7 @@ class _BillPageState extends State<BillPage> {
             saleCash: saleCash.isEmpty ? 0 : double.parse(saleCash),
             salePoints: salePoints.isEmpty ? 0 : double.parse(salePoints),
             saleCreatedDate: date);
+        // ignore: unused_local_variable
         var id = store.box<DailySaleData>().put(dailySale);
       } else {
         dates[0].saleCard += saleCard.isEmpty ? 0 : double.parse(saleCard);
@@ -844,6 +858,7 @@ class _BillPageState extends State<BillPage> {
         'Total',
       ];
 
+      // ignore: unused_local_variable
       int pages = (temp.length / 7).ceil();
       var lists = [];
       int chunkSize = 10;
@@ -903,6 +918,7 @@ class _BillPageState extends State<BillPage> {
                         ),
                       )
                     ]),
+                    // ignore: deprecated_member_use
                     pw.Table.fromTextArray(
                       border: null,
                       cellAlignment: pw.Alignment.centerLeft,
@@ -1279,6 +1295,7 @@ class _BillPageState extends State<BillPage> {
     }
   }
 
+  // ignore: unused_element
   pw.PageTheme _buildTheme(
       PdfPageFormat pageFormat, pw.Font base, pw.Font bold, pw.Font italic) {
     return pw.PageTheme(
@@ -1375,6 +1392,7 @@ class _BillPageState extends State<BillPage> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               padding: const EdgeInsets.all(16),
+                              // ignore: deprecated_member_use
                               primary: defaultAccentColor),
                           child: const FaIcon(FontAwesomeIcons.plus),
                         ),
@@ -1589,6 +1607,7 @@ class _BillPageState extends State<BillPage> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               padding: const EdgeInsets.all(10.0),
+                              // ignore: deprecated_member_use
                               primary: defaultAccentColor),
                           child: Text(
                             'TEMPLE',
@@ -1622,6 +1641,7 @@ class _BillPageState extends State<BillPage> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               padding: const EdgeInsets.all(10),
+                              // ignore: deprecated_member_use
                               primary: defaultAccentColor),
                           child: Text(
                             'IDOL',
@@ -1655,6 +1675,7 @@ class _BillPageState extends State<BillPage> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               padding: const EdgeInsets.all(10),
+                              // ignore: deprecated_member_use
                               primary: defaultAccentColor),
                           child: Text(
                             'HOME DECOR',
@@ -1688,6 +1709,7 @@ class _BillPageState extends State<BillPage> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               padding: const EdgeInsets.all(10),
+                              // ignore: deprecated_member_use
                               primary: defaultAccentColor),
                           child: Text(
                             'MISC',
@@ -2376,6 +2398,7 @@ class _BillPageState extends State<BillPage> {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 padding: const EdgeInsets.all(18),
+                                // ignore: deprecated_member_use
                                 primary: tilePrimaryColor),
                             onPressed: () {
                               tabController.removeTab(tabindex);
@@ -2408,6 +2431,7 @@ class _BillPageState extends State<BillPage> {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 padding: const EdgeInsets.all(18),
+                                // ignore: deprecated_member_use
                                 primary: defaultAccentColor),
                             onPressed: () => {
                               saveBillState(),
@@ -2460,6 +2484,7 @@ class _BillPageState extends State<BillPage> {
                                   }
                                 },
                                 style: ElevatedButton.styleFrom(
+                                  // ignore: deprecated_member_use
                                   primary: defaultAccentColor,
                                   shadowColor: Colors.transparent,
                                   shape: RoundedRectangleBorder(
@@ -2500,6 +2525,7 @@ class BillItem extends StatefulWidget {
   final List<FocusNode> barcodeFocusNode;
   final List<BillItemModel> data;
 
+  // ignore: use_super_parameters
   const BillItem({
     Key? key,
     required this.i,

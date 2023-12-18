@@ -3,16 +3,19 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+// ignore: unnecessary_import
 import 'package:objectbox/objectbox.dart';
 import 'package:reporting_app/database.dart';
 import 'package:reporting_app/main.dart';
 import 'package:reporting_app/objectbox.g.dart';
 import 'package:reporting_app/responsive.dart';
+// ignore: unused_import
 import 'package:reporting_app/screens/generate_bill/desktop_generate_bill.dart';
 import 'package:reporting_app/screens/generate_bill/mobile_generate_bill.dart';
 import 'package:reporting_app/screens/generate_bill/tablet_generate_bill.dart';
 
 class GenerateBill extends StatefulWidget {
+  // ignore: use_super_parameters
   const GenerateBill({Key? key}) : super(key: key);
 
   @override
