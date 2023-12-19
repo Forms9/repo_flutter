@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reporting_app/constants.dart';
-import 'package:reporting_app/screens/dashboard/components/chart.dart';
-import 'package:reporting_app/screens/dashboard/components/storage_info_card.dart';
+import 'package:reporting_app/screens/dashboard/components/storage_details.dart';
 import 'package:reporting_app/util/side_menu.dart';
 
 class DesktopAnalysissPage extends StatelessWidget {
@@ -24,71 +23,7 @@ class DesktopAnalysissPage extends StatelessWidget {
         ),
       ),
       drawer: SideMenu(),
-    );
-  }
-}
-
-class StorageDetails extends StatefulWidget {
-  const StorageDetails({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  _StorageDetailsState createState() => _StorageDetailsState();
-}
-
-class _StorageDetailsState extends State<StorageDetails> {
-  String selectedDuration = "Today"; // Default selected value
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(defaultPadding),
-      decoration: BoxDecoration(
-        color: secondaryColor,
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Analysis",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              DropdownButton<String>(
-                items: ["Today", "7 days", "30 days", "1 Year"]
-                    .map((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-                onChanged: (String? newValue) {
-                  setState(() {
-                    selectedDuration = newValue!;
-                  });
-                },
-                value: selectedDuration,
-              ),
-            ],
-          ),
-          SizedBox(height: defaultPadding),
-          Chart(),
-          StorageInfoCard(
-            svgSrc: "assets/icons/Documents.svg",
-            title: selectedDuration,
-            amountOfFiles: "1.3GB",
-            numOfFiles: 1328,
-          ),
-          // Add other StorageInfoCard instances with updated titles based on selectedDuration
-        ],
-      ),
+      body: StorageDetails(),
     );
   }
 }

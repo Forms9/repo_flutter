@@ -41,7 +41,12 @@ class _StorageDetailsState extends State<StorageDetails> {
                     .map((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
-                    child: Text(value),
+                    child: Text(
+                      value,
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                   );
                 }).toList(),
                 onChanged: (String? newValue) {
@@ -50,6 +55,7 @@ class _StorageDetailsState extends State<StorageDetails> {
                   });
                 },
                 value: selectedDuration,
+                dropdownColor: Color(0xFF655B87),
               ),
             ],
           ),

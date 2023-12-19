@@ -2,12 +2,12 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 
-class TakePicPage extends StatefulWidget {
+class CameraPage extends StatefulWidget {
   @override
-  _TakePicPageState createState() => _TakePicPageState();
+  _CameraPageState createState() => _CameraPageState();
 }
 
-class _TakePicPageState extends State<TakePicPage> {
+class _CameraPageState extends State<CameraPage> {
   late CameraController _controller;
   late Future<void> _initializeControllerFuture;
 
@@ -50,13 +50,9 @@ class _TakePicPageState extends State<TakePicPage> {
   Future<void> saveImageToFile(File image) async {
     try {
       // final directory = await getApplicationDocumentsDirectory();
-      final targetDirectory = Directory('/assets/click_images');
-
-      if (!await targetDirectory.exists()) {
-        await targetDirectory.create(recursive: true);
-      }
-
-      final filePath = '${targetDirectory.path}/image.png';
+      final timestamp = DateTime.now().millisecondsSinceEpoch;
+      final filePath =
+          'C:/Users/acc3s/OneDrive/Desktop/app/repo_flutter/assets/click_images/image_$timestamp.png';
 
       await image.copy(filePath);
 

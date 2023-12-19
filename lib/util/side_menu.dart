@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:reporting_app/constants.dart';
+import 'package:reporting_app/screens/analysis/analysis.dart';
 import 'package:reporting_app/screens/dashboard/dashboard_screen.dart';
 import 'package:reporting_app/screens/recent_bills/recent_bill.dart';
 import 'package:reporting_app/screens/generate_bill/generate_bill.dart';
 import 'package:reporting_app/screens/search_barcode/desktop_scan_barcode.dart';
 import 'package:reporting_app/screens/search_supplier/search_supplier.dart';
 import 'package:reporting_app/screens/setting/setting.dart';
-import 'package:reporting_app/screens/take_pic/take_pic.dart';
+import 'package:reporting_app/screens/take_pic/Barcode/responsive/mobile_scan.dart';
 import 'package:reporting_app/screens/update_price/update_price.dart';
 
 class SideMenu extends StatelessWidget {
@@ -25,19 +26,6 @@ class SideMenu extends StatelessWidget {
           DrawerHeader(
             child: Image.asset("assets/images/logo.png"),
           ),
-          Builder(
-            builder: (context) => DrawerListTile(
-              title: "Take Pic",
-              svgSrc: "assets/icons/menu_dashboard.svg",
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => TakePicPage()),
-                );
-              },
-            ),
-          ),
-
           DrawerListTile(
             title: "Dashboard",
             svgSrc: "assets/icons/menu_dashboard.svg",
@@ -92,9 +80,8 @@ class SideMenu extends StatelessWidget {
               );
             },
           ),
-
           DrawerListTile(
-            title: "Recent Billsss",
+            title: "Recent Bills",
             svgSrc: "assets/icons/menu_dashboard.svg",
             press: () {
               Navigator.push(
@@ -104,16 +91,28 @@ class SideMenu extends StatelessWidget {
               );
             },
           ),
-          // DrawerListTile(
-          //   title: "Analysis",
-          //   svgSrc: "assets/icons/menu_dashboard.svg",
-          //   press: () {
-          //     Navigator.push(
-          //       context,
-          //       MaterialPageRoute(builder: (context) => Analysis()),
-          //     );
-          //   },
-          // ),
+          DrawerListTile(
+            title: "Analysis",
+            svgSrc: "assets/icons/menu_dashboard.svg",
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Analysis()),
+              );
+            },
+          ),
+          Builder(
+            builder: (context) => DrawerListTile(
+              title: "Take Pic",
+              svgSrc: "assets/icons/menu_dashboard.svg",
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MobileScan()),
+                );
+              },
+            ),
+          ),
           DrawerListTile(
             title: "Setting",
             svgSrc: "assets/icons/menu_dashboard.svg",

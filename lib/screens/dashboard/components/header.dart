@@ -20,7 +20,9 @@ class Header extends StatelessWidget {
         if (!Responsive.isMobile(context))
           Text(
             "Dashboard",
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  color: Colors.white, // Change this to the color you want
+                ),
           ),
       ],
     );

@@ -95,7 +95,7 @@ var settingsCategoryPadding =
 
 var customTextField = TextField(
   style: GoogleFonts.poppins(
-    color: Colors.black,
+    color: Colors.white,
   ),
   decoration: InputDecoration(
     hintText: 'Enter Value',

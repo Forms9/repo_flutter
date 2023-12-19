@@ -42,6 +42,9 @@ class StorageInfoCard extends StatelessWidget {
                     title,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                   // Text(
                   //   "$numOfFiles Files",
@@ -54,7 +57,12 @@ class StorageInfoCard extends StatelessWidget {
               ),
             ),
           ),
-          Text(amountOfFiles)
+          Text(
+            amountOfFiles,
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          )
         ],
       ),
     );

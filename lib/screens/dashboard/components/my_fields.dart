@@ -19,7 +19,9 @@ class MyFiles extends StatelessWidget {
           children: [
             Text(
               "My Files",
-              style: Theme.of(context).textTheme.titleMedium,
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: Colors.white,
+                  ),
             ),
             ElevatedButton.icon(
               style: TextButton.styleFrom(
@@ -73,7 +75,9 @@ class FileInfoCardGridView extends StatelessWidget {
         mainAxisSpacing: defaultPadding,
         childAspectRatio: childAspectRatio,
       ),
-      itemBuilder: (context, index) => FileInfoCard(info: demoMyFiles[index]),
+      itemBuilder: (context, index) => FileInfoCard(
+        info: demoMyFiles[index],
+      ),
     );
   }
 }
