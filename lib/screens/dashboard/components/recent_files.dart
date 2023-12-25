@@ -20,8 +20,8 @@ class RecentFiles extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Recent Files",
-            style: Theme.of(context).textTheme.titleMedium,
+            "Recents",
+            style: TextStyle(color: Colors.white),
           ),
           SizedBox(
             width: double.infinity,
@@ -30,18 +30,23 @@ class RecentFiles extends StatelessWidget {
               // minWidth: 600,
               columns: [
                 DataColumn(
-                  label: Text("Supplier"),
+                  label: const Text("Supplier",
+                      style: TextStyle(color: Colors.white)),
                 ),
                 DataColumn(
-                  label: Text("supplier_name"),
+                  label: const Text("supplier_name",
+                      style: TextStyle(color: Colors.white)),
                 ),
                 DataColumn(
-                  label: Text("Contact"),
+                  label: const Text("Contact",
+                      style: TextStyle(color: Colors.white)),
                 ),
                 DataColumn(
-                  label: Text("Address"),
+                  label: const Text("Address",
+                      style: TextStyle(color: Colors.white)),
                 ),
               ],
+
               rows: List.generate(
                 demoRecentFiles.length,
                 (index) => recentFileDataRow(demoRecentFiles[index]),

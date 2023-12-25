@@ -8,7 +8,7 @@ import 'package:reporting_app/screens/generate_bill/generate_bill.dart';
 import 'package:reporting_app/screens/search_barcode/desktop_scan_barcode.dart';
 import 'package:reporting_app/screens/search_supplier/search_supplier.dart';
 import 'package:reporting_app/screens/setting/setting.dart';
-import 'package:reporting_app/screens/take_pic/Barcode/responsive/mobile_scan.dart';
+import 'package:reporting_app/screens/take_pic/takepic.dart';
 import 'package:reporting_app/screens/update_price/update_price.dart';
 
 class SideMenu extends StatelessWidget {
@@ -33,18 +33,6 @@ class SideMenu extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => DashboardScreen()),
-              );
-            },
-          ),
-          DrawerListTile(
-            title: "Search Barcode",
-            svgSrc: "assets/icons/menu_dashboard.svg",
-            press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    // ignore: prefer_const_constructors
-                    builder: (context) => DesktopScanBarcodePage()),
               );
             },
           ),
@@ -101,17 +89,27 @@ class SideMenu extends StatelessWidget {
               );
             },
           ),
-          Builder(
-            builder: (context) => DrawerListTile(
-              title: "Take Pic",
-              svgSrc: "assets/icons/menu_dashboard.svg",
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MobileScan()),
-                );
-              },
-            ),
+          DrawerListTile(
+            title: "Take Pic",
+            svgSrc: "assets/icons/menu_dashboard.svg",
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TakePicPage()),
+              );
+            },
+          ),
+          DrawerListTile(
+            title: "Search Barcode",
+            svgSrc: "assets/icons/menu_dashboard.svg",
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    // ignore: prefer_const_constructors
+                    builder: (context) => DesktopScanBarcodePage()),
+              );
+            },
           ),
           DrawerListTile(
             title: "Setting",

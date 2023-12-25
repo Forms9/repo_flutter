@@ -50,6 +50,7 @@ class FileInfoCard extends StatelessWidget {
             info.title!,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
+            style: TextStyle(color: Colors.white),
           ),
           ProgressLine(
             color: info.color,

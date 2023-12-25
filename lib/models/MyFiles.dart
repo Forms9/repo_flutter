@@ -4,7 +4,7 @@ import '../constants.dart';
 class CloudStorageInfo {
   final String? svgSrc, title, totalStorage;
   final int? numOfFiles, percentage;
-  final Color? color;
+  final Color? color, titleColor;
 
   CloudStorageInfo({
     this.svgSrc,
@@ -13,6 +13,7 @@ class CloudStorageInfo {
     this.numOfFiles,
     this.percentage,
     this.color,
+    this.titleColor,
   });
 }
 
@@ -24,6 +25,7 @@ List demoMyFiles = [
     totalStorage: "1.9GB",
     color: primaryColor,
     percentage: 35,
+    titleColor: Colors.white,
   ),
   CloudStorageInfo(
     title: "Search Supplier",
@@ -32,6 +34,7 @@ List demoMyFiles = [
     totalStorage: "2.9GB",
     color: Color(0xFFFFA113),
     percentage: 35,
+    titleColor: Colors.white,
   ),
   CloudStorageInfo(
     title: "Take Pic",
@@ -40,6 +43,7 @@ List demoMyFiles = [
     totalStorage: "1GB",
     color: Color(0xFFA4CDFF),
     percentage: 10,
+    titleColor: Colors.white,
   ),
   CloudStorageInfo(
     title: "Update Price",
@@ -48,6 +52,7 @@ List demoMyFiles = [
     totalStorage: "7.3GB",
     color: Color(0xFF007EE5),
     percentage: 78,
+    titleColor: Colors.white,
   ),
   CloudStorageInfo(
     title: "Analyis",
@@ -56,5 +61,6 @@ List demoMyFiles = [
     totalStorage: "7.3GB",
     color: Color(0xFF007EE5),
     percentage: 78,
+    titleColor: Colors.white,
   ),
 ];
