@@ -56,7 +56,7 @@ dependencies:
   intl: ^0.17.0
   printing: ^5.10.4
   visibility_detector: ^0.3.3
-  platform_device_id: ^1.0.1
+  platform_device_id_v3: ^1.0.0
   flutter_udid: ^2.0.0
   ai_barcode_scanner: ^0.0.2+1
   stringr: ^1.0.0

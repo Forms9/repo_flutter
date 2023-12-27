@@ -15,8 +15,8 @@ import macos_window_utils
 import mobile_scanner
 import objectbox_flutter_libs
 import path_provider_foundation
-import platform_device_id
 import platform_device_id_macos
+import platform_device_id_v3
 import printing
 import screen_retriever
 import shared_preferences_foundation

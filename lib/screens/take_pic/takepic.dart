@@ -11,17 +11,13 @@ class TakePicPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
-        // ignore: prefer_const_constructors
         title: Text(
           'Take Pic',
-          // ignore: prefer_const_constructors
           style: TextStyle(
             color: Colors.white,
           ),
         ),
-        // ignore: prefer_const_constructors
         backgroundColor: Color(0xFF655B87),
-        // ignore: prefer_const_constructors
         iconTheme: IconThemeData(
           color: Colors.white,
         ),
