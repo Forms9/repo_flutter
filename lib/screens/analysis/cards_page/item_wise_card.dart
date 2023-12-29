@@ -3,84 +3,71 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:reporting_app/constants.dart';
 
-class Sale {
-  final int id;
-  final String saleNumber;
-  final String uniqueNumber;
-  final String storeName;
-  final String salesCreatedDate;
-  final String saleTotal;
-  final String saleDiscount;
-  final String saleCard;
-  final String saleCash;
-  final String salePoints;
-  final String saleBalance;
-  final bool isNotExchange;
-  final List<Map<String, dynamic>> sale;
-
-  Sale({
-    required this.id,
-    required this.saleNumber,
-    required this.uniqueNumber,
-    required this.storeName,
-    required this.salesCreatedDate,
-    required this.saleTotal,
-    required this.saleDiscount,
-    required this.saleCard,
-    required this.saleCash,
-    required this.salePoints,
-    required this.saleBalance,
-    required this.isNotExchange,
-    required this.sale,
-  });
-
-  factory Sale.fromJson(Map<String, dynamic> json) {
-    return Sale(
-      id: json['id'],
-      saleNumber: json['saleNumber'],
-      uniqueNumber: json['uniqueNumber'] ?? '',
-      storeName: json['storeName'],
-      salesCreatedDate: json['salesCreatedDate'],
-      saleTotal: json['saleTotal'],
-      saleDiscount: json['saleDiscount'],
-      saleCard: json['saleCard'],
-      saleCash: json['saleCash'],
-      salePoints: json['salePoints'],
-      saleBalance: json['saleBalance'],
-      isNotExchange: json['isNotExchange'] is String
-          ? (json['isNotExchange'].toLowerCase() == 'true')
-          : json['isNotExchange'],
-      sale: List<Map<String, dynamic>>.from(json['sale']),
-    );
-  }
-}
-
 class ItemWise extends StatefulWidget {
   @override
   _ItemWiseState createState() => _ItemWiseState();
 }
 
 class _ItemWiseState extends State<ItemWise> {
-  List<Sale> sales = [];
+  TextEditingController _searchController = TextEditingController();
+  List<Map<String, dynamic>> _searchResults = [];
 
-  Future<void> fetchData() async {
-    final response = await http.get(
-        Uri.parse('http://213.123.212.191/get_sales_data/C-SUP-1-12230001'));
+  Future<void> _fetchData(String query) async {
+    try {
+      final response = await http.get(
+        Uri.parse('http://192.168.1.26:8000/getsales_data_all/$query/'),
+      );
 
-    if (response.statusCode == 200) {
-      final List<dynamic> jsonData = json.decode(response.body);
-      setState(() {
-        sales = jsonData.map((data) => Sale.fromJson(data)).toList();
-      });
-    } else {
-      throw Exception('Failed to load data');
+      if (response.statusCode == 200) {
+        List<Map<String, dynamic>> saleData =
+            List<Map<String, dynamic>>.from(json.decode(response.body) ?? []);
+        setState(() {
+          _searchResults = saleData;
+        });
+        print('_searchResults: $_searchResults');
+        print('API Response: ${response.body}');
+      } else if (response.statusCode == 404) {
+        setState(() {
+          _searchResults = [];
+        });
+      } else {
+        print('Error Response: ${response.body}');
+        print('Status Code: ${response.statusCode}');
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Failed to load data'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    } catch (e) {
+      print('Error: $e');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('An unexpected error occurred'),
+          backgroundColor: Colors.red,
+        ),
+      );
     }
   }
 
-  @override
-  void initState() {
-    super.initState();
-    fetchData();
+  double calculateTotalRowTotal() {
+    double totalRowTotal = 0.0;
+
+    for (var sale in _searchResults ?? []) {
+      var saleItems = sale?['sale'];
+
+      if (saleItems != null && saleItems is Iterable) {
+        for (var saleItem in saleItems) {
+          var rowTotal = saleItem?['rowTotal'];
+          if (rowTotal != null) {
+            totalRowTotal += double.parse(rowTotal);
+          }
+        }
+      }
+    }
+
+    return totalRowTotal;
   }
 
   @override
@@ -95,104 +82,72 @@ class _ItemWiseState extends State<ItemWise> {
           ),
         ),
         backgroundColor: Color(0xFF655B87),
-        iconTheme: IconThemeData(
-          color: Colors.white,
-        ),
       ),
-      body: RefreshIndicator(
-        onRefresh: fetchData,
-        child: DataTable(
-          columns: [
-            DataColumn(
-              label: Text('Sale Number', style: TextStyle(color: Colors.white)),
-            ),
-            DataColumn(
-              label:
-                  Text('Unique Number', style: TextStyle(color: Colors.white)),
-            ),
-            DataColumn(
-              label: Text('Headline', style: TextStyle(color: Colors.white)),
-            ),
-            DataColumn(
-              label: Text('Row Qty', style: TextStyle(color: Colors.white)),
-            ),
-            DataColumn(
-              label: Text('Row Total', style: TextStyle(color: Colors.white)),
-            ),
-            DataColumn(
-              label: Text('Row Rate', style: TextStyle(color: Colors.white)),
-            ),
-            DataColumn(
-              label: Text('Store Name', style: TextStyle(color: Colors.white)),
-            ),
-            DataColumn(
-              label: Text('Sale Total', style: TextStyle(color: Colors.white)),
-            ),
-            DataColumn(
-              label:
-                  Text('Sale Discount', style: TextStyle(color: Colors.white)),
-            ),
-            DataColumn(
-              label: Text('Sale Card', style: TextStyle(color: Colors.white)),
-            ),
-            DataColumn(
-              label: Text('Sale Cash', style: TextStyle(color: Colors.white)),
-            ),
-          ],
-          rows: sales
-              .expand(
-                (sale) => sale.sale.map(
-                  (item) => DataRow(
-                    cells: [
-                      DataCell(
-                        Text(sale.saleNumber,
-                            style: TextStyle(color: Colors.white)),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.only(left: 80, right: 80, top: 20),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.grey,
+                    width: 0.5,
+                  ),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: TextField(
+                    controller: _searchController,
+                    onChanged: (value) {
+                      _fetchData(value);
+                    },
+                    decoration: InputDecoration(
+                      hintText: 'Search Item',
+                      hintStyle: TextStyle(color: Colors.white),
+                      border: InputBorder.none,
+                      suffixIcon: IconButton(
+                        icon: Icon(Icons.clear),
+                        onPressed: () {
+                          _searchController.clear();
+                          _fetchData('');
+                        },
                       ),
-                      DataCell(
-                        Text(item['fields']['uniqueNumber'] ?? '',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                      DataCell(
-                        Text(item['fields']['headline'] ?? '',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                      DataCell(
-                        Text(item['fields']['rowQty'] ?? '',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                      DataCell(
-                        Text(item['fields']['rowTotal']?.toString() ?? '',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                      DataCell(
-                        Text(item['fields']['rowRate']?.toString() ?? '',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                      DataCell(
-                        Text(sale.storeName,
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                      DataCell(
-                        Text(sale.saleTotal.toString(),
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                      DataCell(
-                        Text(sale.saleDiscount.toString(),
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                      DataCell(
-                        Text(sale.saleCard.toString(),
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                      DataCell(
-                        Text(sale.saleCash.toString(),
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                    ],
+                    ),
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
-              )
-              .toList(),
+              ),
+            ),
+            Text(
+              'Total Row Total: ${calculateTotalRowTotal()}',
+              style: TextStyle(color: Colors.white),
+            ),
+            SizedBox(height: 50),
+            Container(
+              height: MediaQuery.of(context).size.height - 200,
+              child: (_searchResults == null || _searchResults.isEmpty)
+                  ? Center(
+                      child: Text('No results found',
+                          style: TextStyle(color: Colors.white)),
+                    )
+                  : ListView.builder(
+                      itemCount: _searchResults.length,
+                      itemBuilder: (context, index) {
+                        final saleItem = _searchResults[index];
+                        return Card(
+                          // Adjust the card structure based on your data
+                          child: ListTile(
+                            title: Text('Item Name: ${saleItem['headline']}'),
+                            subtitle: Text('Total: ${saleItem['rowTotal']}'),
+                          ),
+                        );
+                      },
+                    ),
+            )
+          ],
         ),
       ),
     );

@@ -69,7 +69,6 @@ dependencies:
   camera_windows: ^0.2.1+8
   gallery_saver: ^2.3.2
   audioplayers: ^5.2.1
-  
 
 dev_dependencies:
   flutter_test:
