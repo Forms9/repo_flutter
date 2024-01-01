@@ -11,7 +11,7 @@ class ItemWise extends StatefulWidget {
 class _ItemWiseState extends State<ItemWise> {
   TextEditingController _searchController = TextEditingController();
   List<Map<String, dynamic>> _searchResults = [];
-
+  double grandTotal = 0.0;
   Future<void> _fetchData(String query) async {
     try {
       final response = await http.get(
@@ -51,23 +51,17 @@ class _ItemWiseState extends State<ItemWise> {
     }
   }
 
-  double calculateTotalRowTotal() {
-    double totalRowTotal = 0.0;
-
-    for (var sale in _searchResults ?? []) {
-      var saleItems = sale?['sale'];
-
-      if (saleItems != null && saleItems is Iterable) {
-        for (var saleItem in saleItems) {
-          var rowTotal = saleItem?['rowTotal'];
-          if (rowTotal != null) {
-            totalRowTotal += double.parse(rowTotal);
-          }
-        }
+  double calculateGrandTotal() {
+    double total = 0.0;
+    for (var saleItem in _searchResults) {
+      // Ensure saleItem['rowTotal'] is a valid numeric string before adding
+      if (saleItem['rowTotal'] is String) {
+        total += double.parse(saleItem['rowTotal']);
+      } else if (saleItem['rowTotal'] is num) {
+        total += saleItem['rowTotal'];
       }
     }
-
-    return totalRowTotal;
+    return total;
   }
 
   @override
@@ -122,13 +116,13 @@ class _ItemWiseState extends State<ItemWise> {
               ),
             ),
             Text(
-              'Total Row Total: ${calculateTotalRowTotal()}',
+              'Grand Total: ${calculateGrandTotal()}',
               style: TextStyle(color: Colors.white),
             ),
             SizedBox(height: 50),
             Container(
               height: MediaQuery.of(context).size.height - 200,
-              child: (_searchResults == null || _searchResults.isEmpty)
+              child: (_searchResults.isEmpty)
                   ? Center(
                       child: Text('No results found',
                           style: TextStyle(color: Colors.white)),
@@ -138,7 +132,6 @@ class _ItemWiseState extends State<ItemWise> {
                       itemBuilder: (context, index) {
                         final saleItem = _searchResults[index];
                         return Card(
-                          // Adjust the card structure based on your data
                           child: ListTile(
                             title: Text('Item Name: ${saleItem['headline']}'),
                             subtitle: Text('Total: ${saleItem['rowTotal']}'),
